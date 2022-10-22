@@ -1,0 +1,28 @@
+.toolbar {
+    overflow-y: visible
+}
+
+.disabled {
+    background-color: #9d9d9d;
+}
+
+.disabled button:disabled,
+button[disabled]{
+    background-color: #f1f3f5;
+    display: inline-flex;
+    font-weight: 400;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 0.375em 0.75em;
+    line-height: 1.5;
+    border-radius: var(--rmr-radius-border);
+    text-decoration: none;
+    border: 1px solid var(--rmr-color-border);
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--rmr-color-text);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-size: 100%;
+}

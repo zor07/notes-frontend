@@ -11,7 +11,7 @@ const Header: React.FC<HeaderPropsType> = ({isAuth, username, logout}) => {
     return (
         <>
             <div className="logo">
-                NoFapp
+                Notes
             </div>
             <Navbar isAuth={isAuth} username={username} logout={logout}/>
         </>

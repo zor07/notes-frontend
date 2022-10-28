@@ -1,8 +1,7 @@
 import React from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
 import {Avatar, Breadcrumb, Dropdown, Menu} from 'antd';
-import {HomeOutlined, UserOutlined} from '@ant-design/icons';
-import {LoginOutlined, LogoutOutlined} from '@ant-design/icons';
+import {HomeOutlined, LoginOutlined, LogoutOutlined} from '@ant-design/icons';
 import {NotebookType} from "../../redux/notebook-reducer";
 import {NoteType} from "../../redux/note-editor-reducer";
 

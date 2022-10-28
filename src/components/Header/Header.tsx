@@ -7,16 +7,18 @@ type HeaderPropsType = {
     isAuth: boolean
     username: string
     logout: () => void
+    notebooks: NotebookType[] | null
     notebook: NotebookType | null
     note: NoteType | null
 }
 
-const Header: React.FC<HeaderPropsType> = ({isAuth, username, logout, notebook, note}) => {
+const Header: React.FC<HeaderPropsType> = ({isAuth, username, logout, notebooks, notebook, note}) => {
     return (
         <>
             <Navbar isAuth={isAuth}
                     username={username}
                     logout={logout}
+                    notebooks={notebooks}
                     notebook={notebook}
                     note={note}
             />

@@ -11,6 +11,7 @@ import {NoteType} from "../../redux/note-editor-reducer";
 type MapStatePropsType = {
     isAuth: boolean
     username: string
+    notebooks: NotebookType[] | null
     notebook: NotebookType | null
     note: NoteType | null
 }
@@ -33,6 +34,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         isAuth: state.auth.isAuth,
         username: state.auth.username,
+        notebooks: state.notebooks.notebooks,
         notebook: state.notes.notebook,
         note: state.noteEditor.note
     }

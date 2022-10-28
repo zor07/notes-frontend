@@ -1,8 +1,7 @@
 import React from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
 import {Avatar, Breadcrumb, Dropdown, Menu} from 'antd';
-import {HomeOutlined, UserOutlined} from '@ant-design/icons';
-import {LoginOutlined, LogoutOutlined} from '@ant-design/icons';
+import {HomeOutlined, LoginOutlined, LogoutOutlined} from '@ant-design/icons';
 import {NotebookType} from "../../redux/notebook-reducer";
 import {NoteType} from "../../redux/note-editor-reducer";
 
@@ -12,11 +11,12 @@ type NavbarPropsType = {
     isAuth: boolean
     username: string
     logout: () => void
+    notebooks: NotebookType[] | null
     notebook: NotebookType | null
     note: NoteType | null
 }
 
-const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebook, note}) => {
+const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks, notebook, note}) => {
     const SubMenu = Menu.SubMenu;
     const location = useLocation()
 
@@ -29,6 +29,18 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebook, 
             </Menu.Item>
         </Menu>
     )
+
+    const notebooksLinks = notebooks.map(it =>
+        <Menu.Item key={`notebookMenu${it.id}`}>
+            <NavLink key={`notebook${it.id}`} to={`/notebooks/${it.id}/notes`}>{it.name}</NavLink>
+        </Menu.Item>
+    )
+    const notebooksMenu = <Menu>
+        {notebooksLinks}
+    </Menu>
+
+
+
     if (location.pathname.match('\/notebooks\/?$') || location.pathname === '/') {
         breadCrumbs = <Breadcrumb separator={""}>
             <Breadcrumb.Item href="" key='profile'>
@@ -57,7 +69,7 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebook, 
                 <NavLink to='/notebooks'><HomeOutlined/> Notebooks</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
-            <Breadcrumb.Item href="" key='notes'>
+            <Breadcrumb.Item href="" overlay={notebooksMenu} key='notes'>
                 <NavLink to={`/notebooks/${notebook.id}/notes`}>{notebook.name}</NavLink>
             </Breadcrumb.Item>
         </Breadcrumb>
@@ -75,7 +87,7 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebook, 
                 <NavLink to='/notebooks'><HomeOutlined/> Notebooks</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
-            <Breadcrumb.Item href="" key='notes'>
+            <Breadcrumb.Item href="" overlay={notebooksMenu} key='notes'>
                 <NavLink to={`/notebooks/${notebook.id}/notes`}>{notebook.name}</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />

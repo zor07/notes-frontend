@@ -1,8 +1,6 @@
 .navbar {
-    grid-area: navbar;
-    background-color: #E9EBF8;
-    /*height: 100%;*/
-    box-shadow: -1px -1px 5px #8D818C;
-    color: #8D818C;
-    padding: 20px;
+    height: 40px;
+    padding-left: 62px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }

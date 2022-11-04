@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {createNotebook, deleteNotebook, NotebookType, requestNotebooks} from "../../redux/notebook-reducer";
-import {Col, Divider, PageHeader, Row} from "antd";
+import {Col, Divider, Row} from "antd";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import css from "./Notebooks.module.css";
 import {AppStateType} from "../../redux/redux-store";

@@ -20,6 +20,7 @@ type MapDispatchPropsType = {
     createNotebook: (notebook: NotebookType) => void
 }
 
+
 type NotebookListContainerType = MapStatePropsType & MapDispatchPropsType
 
 const NotebookListContainer: React.FC<NotebookListContainerType> = (props) => {

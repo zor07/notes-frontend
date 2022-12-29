@@ -1,6 +1,7 @@
 {
   "name": "notes-frontend",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@remirror/pm": "^1.0.16",

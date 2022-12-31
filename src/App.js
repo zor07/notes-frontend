@@ -15,43 +15,42 @@ import NoteEditorContainer from "./components/Note/NoteEditorContainer";
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.initializeApp()
-  }
+    componentDidMount() {
+        this.props.initializeApp()
+    }
 
-  render() {
-    const {Header, Content} = Layout;
-    return (
-        <Layout>
-          <Header className="header" theme="light">
-            <HeaderContainer/>
-          </Header>
-          <Layout>
-            <Layout style={{padding: '12px 12px 12px'}}>
-              <Content
-                  className="site-layout-background"
-                  style={{
-                    padding: '0 50px',
-                    margin: 0,
-                    minHeight: 280,
-                  }}>
-                <Routes>
-                  <Route path='/' element={<NotebookListContainer/>}/>
-                  <Route path='/notebooks' element={<NotebookListContainer/>}/>
-                  <Route path='/notebooks/:notebookId/notes' element={<NoteListContainer/>}/>
-                  <Route path='/notebooks/:notebookId/notes/:noteId' element={<NoteEditorContainer/>}/>
-                  <Route path='/login' element={<Login/>}/>
-                </Routes>
-              </Content>
+    render() {
+        const {Content} = Layout;
+        return (
+            <Layout>
+
+                <HeaderContainer/>
+                <Layout>
+                    <Layout style={{padding: '12px 12px 12px'}}>
+                        <Content
+                            className="site-layout-background"
+                            style={{
+                                padding: '0 50px',
+                                margin: 0,
+                                minHeight: 280,
+                            }}>
+                            <Routes>
+                                <Route path='/' element={<NotebookListContainer/>}/>
+                                <Route path='/notebooks' element={<NotebookListContainer/>}/>
+                                <Route path='/notebooks/:notebookId/notes' element={<NoteListContainer/>}/>
+                                <Route path='/notebooks/:notebookId/notes/:noteId' element={<NoteEditorContainer/>}/>
+                                <Route path='/login' element={<Login/>}/>
+                            </Routes>
+                        </Content>
+                    </Layout>
+                </Layout>
             </Layout>
-          </Layout>
-        </Layout>
-    );
-  }
+        );
+    }
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized,
+    initialized: state.app.initialized,
 })
 
 const AppContainer = compose(
@@ -59,11 +58,11 @@ const AppContainer = compose(
 (App);
 
 const AppMain = () => {
-  return <Provider store={store}>
-    <BrowserRouter>
-      <AppContainer/>
-    </BrowserRouter>
-  </Provider>
+    return <Provider store={store}>
+        <BrowserRouter>
+            <AppContainer/>
+        </BrowserRouter>
+    </Provider>
 }
 
 export default AppMain

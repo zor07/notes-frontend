@@ -52,7 +52,6 @@ const NotebookListContainer: React.FC<NotebookListContainerType> = (props) => {
 
     return (
         <div className={css.content}>
-            <PageHeader title={"Notebooks"} />
             <Row justify="start">
                 {notebookCards}
             </Row>

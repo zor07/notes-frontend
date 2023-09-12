@@ -94,7 +94,6 @@ const NoteListContainer: React.FC<NotesListContainerPropsType> = (props) => {
 
     return (
         <div className={css.content}>
-            <PageHeader title={props.notebook.name} />
             <List itemLayout="vertical"
                   size="large"
                   pagination={{

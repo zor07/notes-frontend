@@ -10,6 +10,7 @@ import {compose} from "redux";
 import {useDebouncedCallback} from "use-debounce";
 import {getNote, NoteType, saveNote, unmountNote} from "../../redux/note-editor-reducer";
 import {NoteIdAndTitleType, requestNotes} from "../../redux/notes-reducer";
+import css from './Note.module.css'
 
 
 type MapStatePropsType = {
@@ -154,26 +155,9 @@ const NoteEditorContainer: React.FC<NoteContainerPropsType> = (props) => {
         }
     }
 
-    const goToNotes = () => {
-        navigate(`/notebooks/${props.note.notebookDto.id}/notes`)
-    }
-
-    const goToNotebooks = () => {
-        navigate(`/notebooks`)
-    }
 
     return (
-        <div>
-            {props.note.notebookDto &&
-                <PageHeader
-                    ghost={false}
-                    title={props.note.notebookDto.name}
-                    extra={[
-                        <Button key="1" onClick={() => goToNotes()}>Back to Notes</Button>,
-                        <Button key="2" onClick={() => goToNotebooks()}>Back to Notebooks</Button>,
-                    ]}
-                />
-            }
+        <div className={css.content}>
             <Tabs activeKey={params.noteId}
                   tabPosition={'right'}
                   onChange={handleTabChange}

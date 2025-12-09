@@ -1,11 +1,9 @@
-import React, {useEffect, useState} from "react";
-import {Button, Form, Input, Typography} from 'antd';
+import React from "react";
+import {Button, Form, Input} from 'antd';
 import {NotebookType} from "../../redux/notebook-reducer";
 import {FormOutlined} from "@ant-design/icons";
-import {useDispatch} from "react-redux";
 import TextArea from "antd/es/input/TextArea";
-
-const {Title} = Typography;
+import {Space} from "antd";
 
 type NotebookFormType = {
     createNotebook: (payload: NotebookType) => void
@@ -13,64 +11,66 @@ type NotebookFormType = {
 
 const NotebookForm: React.FC<NotebookFormType> = ({createNotebook}) => {
     const [form] = Form.useForm()
-    const dispatch = useDispatch()
-    const [notebook, setNotebook] = useState(null);
 
     const onFinish = (payload: NotebookType) => {
-        setNotebook(payload)
+        createNotebook(payload)
         form.resetFields()
     };
 
-    useEffect(() => {
-        if (notebook !== null) {
-            dispatch(createNotebook(notebook))
-            setNotebook(null)
-        }
-    })
-
     return (
-        <div>
-            <Title level={5}>Create new Notebook</Title>
-            <Form
-                size={'middle'}
-                form={form}
-                name="notebookForm"
-                layout={'horizontal'}
-                labelCol={{
-                    span: 4,
-                }}
-                wrapperCol={{
-                    span: 10,
-                }}
-                onFinish={onFinish}
-                autoComplete="off">
+        <Form
+            size={'middle'}
+            form={form}
+            name="notebookForm"
+            layout={'vertical'}
+            onFinish={onFinish}
+            autoComplete="off"
+            style={{ marginTop: 24 }}
+        >
+            <Form.Item
+                label="Название"
+                name="name"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Пожалуйста, укажите название блокнота!',
+                    },
+                    {
+                        max: 100,
+                        message: 'Название не должно превышать 100 символов',
+                    }
+                ]}>
+                <Input placeholder="Введите название блокнота" />
+            </Form.Item>
 
-                <Form.Item
-                    label="Name"
-                    name="name"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please add name!',
-                        },
-                    ]}>
-                    <Input/>
-                </Form.Item>
+            <Form.Item
+                label="Описание"
+                name="description"
+                rules={[
+                    {
+                        max: 500,
+                        message: 'Описание не должно превышать 500 символов',
+                    }
+                ]}>
+                <TextArea 
+                    rows={4} 
+                    placeholder="Добавьте описание (необязательно)"
+                    showCount
+                    maxLength={500}
+                />
+            </Form.Item>
 
-                <Form.Item
-                    label="Description"
-                    name="description">
-                    <TextArea/>
-                </Form.Item>
-
-                <Form.Item>
+            <Form.Item style={{ marginBottom: 0, marginTop: 24 }}>
+                <Space>
                     <Button icon={<FormOutlined/>} type="primary" htmlType="submit">
-                        Create new notebook
+                        Создать блокнот
                     </Button>
-                </Form.Item>
-
-            </Form>
-        </div>
+                    <Button onClick={() => form.resetFields()}>
+                        Очистить
+                    </Button>
+                </Space>
+            </Form.Item>
+        </Form>
     )
 
 }

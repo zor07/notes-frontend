@@ -10,7 +10,7 @@ export const withAuthRedirect = (Component) => {
             if (props.initialized && !props.isAuth) {
                 navigate("/login")
             }
-        })
+        }, [props.initialized, props.isAuth, navigate])
 
         return <Component {...props} />
     }

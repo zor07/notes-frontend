@@ -1,8 +1,141 @@
 .content {
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 24px;
+    min-height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.headerTitle {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.searchContainer {
+    flex: 1;
+    max-width: 400px;
+    min-width: 200px;
+}
+
+.notebooksGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
 .notebookCard {
-    padding-bottom: 20px;
+    height: 100%;
+}
+
+.card {
+    height: 100%;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    border-color: #1890ff;
+}
+
+.cardCover {
+    height: 120px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardCover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+    font-size: 48px;
+    color: white;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.cardContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    min-height: 100px;
+}
+
+.cardTitle {
+    margin-bottom: 8px !important;
+    font-weight: 600;
+    color: #262626;
+}
+
+.cardDescription {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #8c8c8c;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.emptyStateIcon {
+    font-size: 64px;
+    color: #d9d9d9;
+    margin-bottom: 16px;
+}
+
+.emptyStateTitle {
+    font-size: 20px;
+    color: #595959;
+    margin-bottom: 8px;
+}
+
+.emptyStateDescription {
+    color: #8c8c8c;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    .notebooksGrid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .searchContainer {
+        max-width: 100%;
+    }
 }

@@ -43,6 +43,7 @@ const NoteListContainer: React.FC<NotesListContainerPropsType> = (props) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    // Загружаем данные при монтировании и изменении notebookId
     useEffect(() => {
         if (params.notebookId) {
             dispatch(requestNotes(params.notebookId))
@@ -52,23 +53,15 @@ const NoteListContainer: React.FC<NotesListContainerPropsType> = (props) => {
         }
     }, [dispatch, params.notebookId])
 
+    // Обрабатываем создание новой записи
     useEffect(() => {
-        if (params.notebookId) {
-            dispatch(requestNotes(params.notebookId))
+        if (props.createdNoteId && props.notebook?.id) {
+            setIsCreatingNewNoteId(false)
+            const newId = props.createdNoteId
+            dispatch(clearCreatedNoteId())
+            navigate(`/notebooks/${props.notebook.id}/notes/${newId}`)
         }
-    }, [dispatch, params.notebookId])
-
-    useEffect(() => {
-        if (props.notebook && props.notebook.id) {
-            dispatch(requestNotes(props.notebook.id))
-            if (props.createdNoteId) {
-                setIsCreatingNewNoteId(false)
-                const newId = props.createdNoteId
-                dispatch(clearCreatedNoteId())
-                navigate(`/notebooks/${props.notebook.id}/notes/${newId}`)
-            }
-        }
-    }, [dispatch, navigate, props.createdNoteId, props.notebook])
+    }, [dispatch, navigate, props.createdNoteId, props.notebook?.id])
 
     useEffect(() => {
         if (deleteNoteId !== '') {

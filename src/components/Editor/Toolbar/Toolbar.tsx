@@ -62,6 +62,9 @@ const Toolbar: React.FC<ToolbarPropsType> = ({saveContent, codeLanguages}) => {
                 <BulletList />
                 <OrderedList />
                 <TaskList />
+            </div>
+            <hr role="separator" aria-orientation="vertical" className="remirror-role remirror-separator"/>
+            <div className="remirror-role remirror-group">
                 <CodeBlockButton languages={codeLanguages} />
             </div>
             <hr role="separator" aria-orientation="vertical" className="remirror-role remirror-separator"/>

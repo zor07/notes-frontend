@@ -25,3 +25,68 @@ body.theme-dark .editor .ProseMirror h5,
 body.theme-dark .editor .ProseMirror h6 {
   color: rgba(255, 255, 255, 0.85) !important;
 }
+
+/* Стили для тулбара в темной теме */
+body.theme-dark .remirror-toolbar {
+  background-color: #1f1f1f !important;
+  border-color: #434343 !important;
+}
+
+body.theme-dark .remirror-toolbar .remirror-group {
+  background-color: transparent !important;
+}
+
+body.theme-dark .remirror-toolbar .remirror-separator {
+  background-color: #434343 !important;
+  border-color: #434343 !important;
+}
+
+body.theme-dark .remirror-toolbar button {
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  border-color: #434343 !important;
+}
+
+body.theme-dark .remirror-toolbar button:hover:not(:disabled) {
+  background-color: #262626 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .remirror-toolbar button:active:not(:disabled),
+body.theme-dark .remirror-toolbar button[aria-pressed="true"] {
+  background-color: #1890ff !important;
+  color: #fff !important;
+}
+
+body.theme-dark .remirror-toolbar button:disabled {
+  background-color: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.25) !important;
+  border-color: #434343 !important;
+}
+
+/* Стили для селекта выбора языка в темной теме */
+body.theme-dark .remirror-toolbar .remirror-select,
+body.theme-dark .remirror-toolbar select {
+  background-color: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  border-color: #434343 !important;
+}
+
+body.theme-dark .remirror-toolbar .remirror-select:hover,
+body.theme-dark .remirror-toolbar select:hover {
+  background-color: #262626 !important;
+  border-color: #595959 !important;
+}
+
+body.theme-dark .remirror-toolbar .remirror-select:focus,
+body.theme-dark .remirror-toolbar select:focus {
+  background-color: #1f1f1f !important;
+  border-color: #1890ff !important;
+  outline: none !important;
+}
+
+body.theme-dark .remirror-toolbar .remirror-select option,
+body.theme-dark .remirror-toolbar select option {
+  background-color: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}

@@ -12,6 +12,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import NotebookListContainer from "./components/Notebook/NotebookListContainer";
 import NoteListContainer from "./components/Note/NoteListContainer";
 import NoteEditorContainer from "./components/Note/NoteEditorContainer";
+import Register from "./components/Login/Register";
 
 class App extends Component {
 
@@ -40,6 +41,7 @@ class App extends Component {
                                 <Route path='/notebooks/:notebookId/notes' element={<NoteListContainer/>}/>
                                 <Route path='/notebooks/:notebookId/notes/:noteId' element={<NoteEditorContainer/>}/>
                                 <Route path='/login' element={<Login/>}/>
+                                <Route path='/register' element={<Register/>}/>
                             </Routes>
                         </Content>
                     </Layout>

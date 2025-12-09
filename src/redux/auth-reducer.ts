@@ -47,6 +47,16 @@ export const login = (username: string, password: string) => {
     }
 }
 
+export const register = (username: string, password: string, name: string) => {
+    return async (dispatch: Function) => {
+        const response = await AUTH_API.register(username, password, name);
+        if (response.status === 201) {
+            updateCookies(response.data.access_token, response.data.refresh_token)
+            dispatch(me())
+        }
+    }
+}
+
 export const logout = () => {
     return (dispatch: Function) => {
         dispatch(setUserData(null, null, null, false));

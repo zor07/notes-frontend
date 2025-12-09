@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 import {AppStateType} from "../../redux/redux-store";
 import {Button, Form, Input, Typography} from "antd";
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
@@ -85,6 +85,9 @@ const Login: React.FC<LoginPropsType>= ({isAuth, login}) => {
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         Log in
                     </Button>
+                    <div style={{ marginTop: 8 }}>
+                        No account? <Link to="/register">Register</Link>
+                    </div>
                 </Form.Item>
             </Form>
         </div>

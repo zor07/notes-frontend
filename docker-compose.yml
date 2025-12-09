@@ -9,4 +9,4 @@ services:
       context: .
       target: production
     ports:
-      - "3005:80"
+      - "8482:80"

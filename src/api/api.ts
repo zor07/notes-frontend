@@ -31,6 +31,9 @@ export const AUTH_API = {
                 "Authorization": `Bearer ${cookies.get("refreshToken")}`
             }
         })
+    },
+    register(username, password, name) {
+        return instance.post(`auth/register`, {username, password, name})
     }
 }
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
-import {Avatar, Breadcrumb, Dropdown, Menu} from 'antd';
-import {HomeOutlined, LoginOutlined, LogoutOutlined} from '@ant-design/icons';
+import {Avatar, Breadcrumb, Dropdown, Menu, Switch, Space, Typography} from 'antd';
+import {HomeOutlined, LoginOutlined, LogoutOutlined, BulbOutlined} from '@ant-design/icons';
 import {NotebookType} from "../../redux/notebook-reducer";
 import {NoteType} from "../../redux/note-editor-reducer";
+import {ThemeMode} from "../../theme/theme";
 
 import css from './Navbar.module.css'
 
@@ -14,9 +15,11 @@ type NavbarPropsType = {
     notebooks: NotebookType[] | null
     notebook: NotebookType | null
     note: NoteType | null
+    theme: ThemeMode
+    toggleTheme: () => void
 }
 
-const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks, notebook, note}) => {
+const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks, notebook, note, theme, toggleTheme}) => {
     const SubMenu = Menu.SubMenu;
     const location = useLocation()
 
@@ -100,27 +103,34 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
 
 
     return (
-        <Menu theme='light' mode='horizontal' className={css.navbar}>
-            <div>
+        <Menu theme={theme === 'dark' ? 'dark' : 'light'} mode='horizontal' className={css.navbar}>
+            <div className={css.navContent}>
+                <div className={css.left}>
+                    {isAuth &&
+                        <>
+                            {breadCrumbs}
+                        </>
+                    }
 
-
-            {isAuth &&
-                <>
-                    {breadCrumbs}
-                </>
-            }
-
-            {!isAuth &&
-                <>
-                    <Breadcrumb>
-                        <Breadcrumb.Item href="" key='profile'>
-                            <Menu.Item icon={<LoginOutlined/>} key='login'>
-                                <NavLink to={'/login'}>Login</NavLink>
-                            </Menu.Item>
-                        </Breadcrumb.Item>
-                    </Breadcrumb>
-                </>
-            }
+                    {!isAuth &&
+                        <>
+                            <Breadcrumb>
+                                <Breadcrumb.Item href="" key='profile'>
+                                    <Menu.Item icon={<LoginOutlined/>} key='login'>
+                                        <NavLink to={'/login'}>Login</NavLink>
+                                    </Menu.Item>
+                                </Breadcrumb.Item>
+                            </Breadcrumb>
+                        </>
+                    }
+                </div>
+                <div className={css.right}>
+                    <Space align="center">
+                        <BulbOutlined />
+                        <Switch checked={theme === 'dark'} onChange={() => toggleTheme()} size="small" />
+                        <Typography.Text>{theme === 'dark' ? 'Dark' : 'Light'}</Typography.Text>
+                    </Space>
+                </div>
             </div>
         </Menu>
     )

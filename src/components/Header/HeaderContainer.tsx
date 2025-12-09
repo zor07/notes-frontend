@@ -5,6 +5,7 @@ import {logout} from "../../redux/auth-reducer";
 import {AppStateType} from "../../redux/redux-store";
 import {NotebookType} from "../../redux/notebook-reducer";
 import {NoteType} from "../../redux/note-editor-reducer";
+import {applyTheme, ThemeMode} from "../../theme/theme";
 
 
 
@@ -24,9 +25,35 @@ type OwnPropsType = {}
 
 export type HeaderContainerPropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
 
-class HeaderContainer extends React.Component<HeaderContainerPropsType> {
+type HeaderContainerState = {
+    theme: ThemeMode
+}
+
+class HeaderContainer extends React.Component<HeaderContainerPropsType, HeaderContainerState> {
+
+    constructor(props: HeaderContainerPropsType) {
+        super(props);
+        this.state = { theme: 'light' };
+    }
+
+    async componentDidMount() {
+        await applyTheme(this.state.theme);
+    }
+
+    async componentDidUpdate(_: HeaderContainerPropsType, prevState: HeaderContainerState) {
+        if (prevState.theme !== this.state.theme) {
+            await applyTheme(this.state.theme);
+        }
+    }
+
+    toggleTheme = () => {
+        this.setState(({ theme }) => ({ theme: theme === 'light' ? 'dark' : 'light' }));
+    }
+
     render() {
-        return <Header {...this.props}/>
+        return <Header {...this.props}
+                       theme={this.state.theme}
+                       toggleTheme={this.toggleTheme}/>
     }
 }
 

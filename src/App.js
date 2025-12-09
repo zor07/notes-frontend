@@ -7,7 +7,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer.ts";
 import store from "./redux/redux-store.ts";
 import {Layout} from "antd";
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NotebookListContainer from "./components/Notebook/NotebookListContainer";
 import NoteListContainer from "./components/Note/NoteListContainer";

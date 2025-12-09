@@ -1,9 +1,9 @@
 import React from "react";
-import {Button, Form, Input} from 'antd';
+import {Button, Form, Input, Space} from 'antd';
 import {NotebookType} from "../../redux/notebook-reducer";
 import {FormOutlined} from "@ant-design/icons";
-import TextArea from "antd/es/input/TextArea";
-import {Space} from "antd";
+
+const { TextArea } = Input;
 
 type NotebookFormType = {
     createNotebook: (payload: NotebookType) => void

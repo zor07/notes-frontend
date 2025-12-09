@@ -4,7 +4,7 @@ import {AppStateType} from "../../redux/redux-store";
 import {useNavigate, useParams} from "react-router-dom";
 import Editor from "../Editor/Editor";
 import {PrimitiveSelection, RemirrorJSON} from "remirror";
-import {Button, message, PageHeader, Tabs} from "antd";
+import {message, Tabs} from "antd";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {useDebouncedCallback} from "use-debounce";
@@ -121,7 +121,7 @@ const NoteEditorContainer: React.FC<NoteContainerPropsType> = (props) => {
             if (title) {
                 save(editorState.doc as unknown as RemirrorJSON, currSelection, title)
             } else {
-                message.warn('Please add title', 1)
+                message.warning('Please add title')
             }
             setShouldSaveImmediately(false)
             setShouldAutoSave(false)

@@ -17,34 +17,34 @@ type NavbarPropsType = {
 }
 
 const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks, notebook, note}) => {
-    const SubMenu = Menu.SubMenu;
     const location = useLocation()
 
     let breadCrumbs;
 
-    const userMenu = (
-        <Menu>
-            <Menu.Item key='logout' icon={<LogoutOutlined/>} onClick={logout}>
-                Logout
-            </Menu.Item>
-        </Menu>
-    )
+    const userMenu = {
+        items: [
+            {
+                key: 'logout',
+                icon: <LogoutOutlined/>,
+                label: 'Logout',
+                onClick: logout
+            }
+        ]
+    }
 
-    const notebooksLinks = notebooks.map(it =>
-        <Menu.Item key={`notebookMenu${it.id}`}>
-            <NavLink key={`notebook${it.id}`} to={`/notebooks/${it.id}/notes`}>{it.name}</NavLink>
-        </Menu.Item>
-    )
-    const notebooksMenu = <Menu>
-        {notebooksLinks}
-    </Menu>
+    const notebooksMenu = {
+        items: notebooks.map(it => ({
+            key: `notebookMenu${it.id}`,
+            label: <NavLink key={`notebook${it.id}`} to={`/notebooks/${it.id}/notes`}>{it.name}</NavLink>
+        }))
+    }
 
 
 
     if (location.pathname.match('\/notebooks\/?$') || location.pathname === '/') {
         breadCrumbs = <Breadcrumb separator={""}>
             <Breadcrumb.Item href="" key='profile'>
-                <Dropdown overlay={userMenu}>
+                <Dropdown menu={userMenu}>
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                         <Avatar src="https://joeschmoe.io/api/v1/random"/> {username}
                     </a>
@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
     } else if (location.pathname.match('\/notebooks\/[0-9]+\/notes\/?$')) {
         breadCrumbs = <Breadcrumb separator={""}>
             <Breadcrumb.Item href="" key='profile'>
-                <Dropdown overlay={userMenu}>
+                <Dropdown menu={userMenu}>
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                         <Avatar src="https://joeschmoe.io/api/v1/random"/> {username}
                     </a>
@@ -69,14 +69,14 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
                 <NavLink to='/notebooks'><HomeOutlined/> Notebooks</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
-            <Breadcrumb.Item href="" overlay={notebooksMenu} key='notes'>
+            <Breadcrumb.Item href="" menu={notebooksMenu} key='notes'>
                 <NavLink to={`/notebooks/${notebook.id}/notes`}>{notebook.name}</NavLink>
             </Breadcrumb.Item>
         </Breadcrumb>
     } else if (location.pathname.match('\/notebooks\/[0-9]+\/notes\/?\/[0-9]+\/?$')) {
         breadCrumbs = <Breadcrumb separator={""}>
             <Breadcrumb.Item href="" key='profile'>
-                <Dropdown overlay={userMenu}>
+                <Dropdown menu={userMenu}>
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                         <Avatar src="https://joeschmoe.io/api/v1/random"/> {username}
                     </a>
@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
                 <NavLink to='/notebooks'><HomeOutlined/> Notebooks</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
-            <Breadcrumb.Item href="" overlay={notebooksMenu} key='notes'>
+            <Breadcrumb.Item href="" menu={notebooksMenu} key='notes'>
                 <NavLink to={`/notebooks/${notebook.id}/notes`}>{notebook.name}</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />

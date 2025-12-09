@@ -20,7 +20,7 @@ const AddYoutubeButton = () => {
             setVisible(false);
             setYouTubeVideoLink('')
         } else {
-            message.warning("Please enter valid youtube video url", 2)
+            message.warning("Please enter valid youtube video url")
         }
     };
 
@@ -45,7 +45,7 @@ const AddYoutubeButton = () => {
             </button>
             <Modal
                 title="Insert YouTube video link"
-                visible={visible}
+                open={visible}
                 onOk={handleOk}
                 onCancel={handleCancel}>
                 <Input placeholder="https://www.youtube.com/..."

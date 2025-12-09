@@ -141,7 +141,7 @@ const NotebookListContainer: React.FC<NotebookListContainerType> = (props) => {
 
             <Modal
                 title="Создать новый блокнот"
-                visible={isModalVisible}
+                open={isModalVisible}
                 onCancel={() => setIsModalVisible(false)}
                 footer={null}
                 width={600}

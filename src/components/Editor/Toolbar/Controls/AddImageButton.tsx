@@ -33,7 +33,7 @@ const AddImageButton = () => {
             </button>
             <Modal
                 title="Insert image url"
-                visible={visible}
+                open={visible}
                 onOk={handleOk}
                 onCancel={handleCancel}>
 

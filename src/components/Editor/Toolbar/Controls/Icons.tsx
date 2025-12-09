@@ -370,6 +370,24 @@ export const AddImageLineIcon = () => {
     )
 }
 
+export const CodeIcon = () => {
+    return (
+        <svg stroke="currentColor"
+             fill="currentColor"
+             strokeWidth="0"
+             name="codeBlock"
+             height="1em"
+             width="1em"
+             xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 24 24">
+            <g>
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path d="M9.587 18.85l-1.174-.81L13.968 5.15l1.175.81L9.587 18.85zM7.07 8.1L3.172 12l3.9 3.9-1.272 1.272L.628 12l5.172-5.172L7.07 8.1zm9.86 0l1.27-1.272L23.372 12l-5.172 5.172-1.27-1.272L20.828 12l-3.9-3.9z"/>
+            </g>
+        </svg>
+    )
+}
+
 export const ArrowUpIcon = () => {
     return (
         <svg stroke="currentColor"

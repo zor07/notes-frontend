@@ -17,13 +17,15 @@ import {cx} from "remirror";
 import css from './Controls/Controls.module.css'
 import IncreaseFontSizeButton from "./Controls/IncreaseFontSizeButton";
 import DecreaseFontSizeButton from "./Controls/DecreaseFontSizeButton";
+import CodeBlockButton from "./Controls/CodeBlockButton";
 
 
 type ToolbarPropsType = {
     saveContent: () => void
+    codeLanguages: string[]
 }
 
-const Toolbar: React.FC<ToolbarPropsType> = ({saveContent}) => {
+const Toolbar: React.FC<ToolbarPropsType> = ({saveContent, codeLanguages}) => {
 
     return (
         <div className={cx( "remirror-role", "remirror-toolbar", css.toolbar)}>
@@ -60,6 +62,7 @@ const Toolbar: React.FC<ToolbarPropsType> = ({saveContent}) => {
                 <BulletList />
                 <OrderedList />
                 <TaskList />
+                <CodeBlockButton languages={codeLanguages} />
             </div>
             <hr role="separator" aria-orientation="vertical" className="remirror-role remirror-separator"/>
             <div className="remirror-role remirror-group">

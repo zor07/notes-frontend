@@ -12,6 +12,7 @@ import {
     LinkExtension,
     NodeFormattingExtension,
     OrderedListExtension,
+    CodeBlockExtension,
     TaskListItemExtension,
     UnderlineExtension,
     wysiwygPreset
@@ -21,7 +22,51 @@ import Toolbar from "./Toolbar/Toolbar";
 import {htmlToProsemirrorNode, PrimitiveSelection, RemirrorContentType} from "remirror";
 import MyItalicExtension from "./extensions/MyItalicExtension";
 import css from './Editor.module.css';
+import refractor, { RefractorSyntax } from "refractor/core";
+import javascript from "refractor/lang/javascript";
+import typescript from "refractor/lang/typescript";
+import java from "refractor/lang/java";
+import python from "refractor/lang/python";
+import bash from "refractor/lang/bash";
+import json from "refractor/lang/json";
+import markdown from "refractor/lang/markdown";
+import yaml from "refractor/lang/yaml";
+import kotlin from "refractor/lang/kotlin";
 
+const SUPPORTED_LANGUAGES: RefractorSyntax[] = [
+    typescript,
+    javascript,
+    java,
+    kotlin,
+    python,
+    bash,
+    json,
+    markdown,
+    yaml,
+];
+
+const SUPPORTED_LANGUAGE_CODES = [
+    'typescript',
+    'javascript',
+    'java',
+    'kotlin',
+    'python',
+    'bash',
+    'json',
+    'markdown',
+    'yaml',
+];
+
+// Register languages once for syntax highlighting
+refractor.register(javascript);
+refractor.register(typescript);
+refractor.register(java);
+refractor.register(python);
+refractor.register(bash);
+refractor.register(json);
+refractor.register(markdown);
+refractor.register(yaml);
+refractor.register(kotlin);
 
 const hooks = [
     () => {
@@ -65,6 +110,10 @@ const Editor: React.FC<EditorPropsType> = ({content, selection,  setEditorState,
             new DocExtension({content: 'heading block+'}),
             linkExtension,
             new MyItalicExtension(),
+            new CodeBlockExtension({
+                defaultLanguage: 'typescript',
+                supportedLanguages: SUPPORTED_LANGUAGES
+            }),
             new UnderlineExtension(),
             new HeadingExtension({}),
             new FontSizeExtension({}),
@@ -112,7 +161,10 @@ const Editor: React.FC<EditorPropsType> = ({content, selection,  setEditorState,
                     hooks={hooks}
                     onChange={handleChange}>
 
-                    <Toolbar saveContent={() => setShouldSaveImmediately(true)}/>
+                    <Toolbar
+                        saveContent={() => setShouldSaveImmediately(true)}
+                        codeLanguages={SUPPORTED_LANGUAGE_CODES}
+                    />
 
                     <div className="remirror-editor remirror-a11y-dark" >
                         <EditorComponent/>

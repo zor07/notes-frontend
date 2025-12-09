@@ -50,12 +50,33 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+body.theme-dark .tableContainer {
+    background: #1f1f1f !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 .notesTable {
     background: #fff;
 }
 
+body.theme-dark .notesTable {
+    background: #1f1f1f !important;
+}
+
 .notesTable :global(.ant-table) {
     background: #fff;
+}
+
+body.theme-dark .notesTable :global(.ant-table) {
+    background: #1f1f1f !important;
+}
+
+.notesTable :global(.ant-table-container) {
+    background: #fff;
+}
+
+body.theme-dark .notesTable :global(.ant-table-container) {
+    background: #1f1f1f !important;
 }
 
 .notesTable :global(.ant-table-thead > tr > th) {
@@ -66,9 +87,51 @@
     padding: 16px;
 }
 
+body.theme-dark .notesTable :global(.ant-table-thead > tr > th) {
+    background: #262626 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 2px solid #434343 !important;
+}
+
+.notesTable :global(.ant-table-tbody) {
+    background: #fff;
+}
+
+body.theme-dark .notesTable :global(.ant-table-tbody) {
+    background: #1f1f1f !important;
+}
+
+.notesTable :global(.ant-table-tbody > tr) {
+    background: #fff;
+}
+
+body.theme-dark .notesTable :global(.ant-table-tbody > tr) {
+    background: #1f1f1f !important;
+}
+
 .notesTable :global(.ant-table-tbody > tr > td) {
     padding: 16px;
     border-bottom: 1px solid #f0f0f0;
+    background: #fff;
+    color: #262626;
+}
+
+body.theme-dark .notesTable :global(.ant-table-tbody > tr > td) {
+    border-bottom: 1px solid #434343 !important;
+    background: #1f1f1f !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-table-tbody > tr > td *) {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.notesTable :global(.ant-table-cell) {
+    background: #fff;
+}
+
+body.theme-dark .notesTable :global(.ant-table-cell) {
+    background: #1f1f1f !important;
 }
 
 .tableRow {
@@ -80,8 +143,105 @@
     background-color: #f5f5f5 !important;
 }
 
+body.theme-dark .tableRow:hover {
+    background-color: #262626 !important;
+}
+
 .tableRow:hover :global(.ant-table-cell) {
     background-color: #f5f5f5 !important;
+}
+
+body.theme-dark .tableRow:hover :global(.ant-table-cell) {
+    background-color: #262626 !important;
+}
+
+body.theme-dark .tableRow:hover :global(.ant-table-tbody > tr > td) {
+    background-color: #262626 !important;
+}
+
+/* Стили для пагинации */
+.notesTable :global(.ant-table-wrapper .ant-table-pagination.ant-pagination),
+.notesTable :global(.ant-table-pagination.ant-pagination) {
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Стили для пагинации в темной теме */
+body.theme-dark .notesTable :global(.ant-pagination) {
+    background: #1f1f1f !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-total-text) {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-item) {
+    background: #1f1f1f !important;
+    border-color: #434343 !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-item a) {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-item-active) {
+    background: #1890ff !important;
+    border-color: #1890ff !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-item-active a) {
+    color: #fff !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-prev),
+body.theme-dark .notesTable :global(.ant-pagination-next) {
+    background: #1f1f1f !important;
+    border-color: #434343 !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-prev .anticon),
+body.theme-dark .notesTable :global(.ant-pagination-next .anticon) {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-pagination-prev.ant-pagination-disabled),
+body.theme-dark .notesTable :global(.ant-pagination-next.ant-pagination-disabled) {
+    opacity: 0.3;
+}
+
+body.theme-dark .notesTable :global(.ant-select-selector) {
+    background: #1f1f1f !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-select-selection-item) {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-select-arrow .anticon) {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+body.theme-dark .notesTable :global(.ant-select-dropdown) {
+    background: #1f1f1f !important;
+}
+
+body.theme-dark .notesTable :global(.ant-select-item) {
+    color: rgba(255, 255, 255, 0.85) !important;
+    background: #1f1f1f !important;
+}
+
+body.theme-dark .notesTable :global(.ant-select-item:hover),
+body.theme-dark .notesTable :global(.ant-select-item-option-active) {
+    background: #262626 !important;
+}
+
+body.theme-dark .notesTable :global(.ant-select-item-option-selected) {
+    background: #111b26 !important;
+    color: #1890ff !important;
 }
 
 .titleCell {
@@ -96,6 +256,10 @@
     flex-shrink: 0;
 }
 
+body.theme-dark .titleIcon {
+    color: #1890ff !important;
+}
+
 .titleText {
     font-size: 14px;
     color: #262626;
@@ -104,6 +268,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     flex: 1;
+}
+
+/* Стили для текста названия записи в темной теме - используем селектор по атрибуту class для CSS модулей */
+body.theme-dark .notesTable :global(.ant-table-tbody > tr > td) span[class*="titleText"],
+body.theme-dark .notesTable :global(.ant-table-tbody > tr > td) [class*="titleText"] {
+    color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .actionButton {

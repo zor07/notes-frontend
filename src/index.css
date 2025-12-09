@@ -11,3 +11,137 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
+
+/* Стили для заголовков в редакторе при темной теме */
+body.theme-dark .remirror-editor h1,
+body.theme-dark .remirror-editor h2,
+body.theme-dark .remirror-editor h3,
+body.theme-dark .remirror-editor h4,
+body.theme-dark .remirror-editor h5,
+body.theme-dark .remirror-editor h6,
+body.theme-dark .remirror-theme h1,
+body.theme-dark .remirror-theme h2,
+body.theme-dark .remirror-theme h3,
+body.theme-dark .remirror-theme h4,
+body.theme-dark .remirror-theme h5,
+body.theme-dark .remirror-theme h6,
+body.theme-dark .ProseMirror h1,
+body.theme-dark .ProseMirror h2,
+body.theme-dark .ProseMirror h3,
+body.theme-dark .ProseMirror h4,
+body.theme-dark .ProseMirror h5,
+body.theme-dark .ProseMirror h6 {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Глобальные стили для таблицы в темной теме */
+body.theme-dark .ant-table,
+body.theme-dark .ant-table-container,
+body.theme-dark .ant-table-tbody,
+body.theme-dark .ant-table-tbody > tr,
+body.theme-dark .ant-table-tbody > tr > td,
+body.theme-dark .ant-table-thead > tr > th,
+body.theme-dark .ant-table-cell {
+  background: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  border-color: #434343 !important;
+}
+
+body.theme-dark .ant-table-thead > tr > th {
+  background: #262626 !important;
+}
+
+body.theme-dark .ant-table-tbody > tr:hover > td,
+body.theme-dark .ant-table-tbody > tr:hover {
+  background: #262626 !important;
+}
+
+/* Стили для пагинации в темной теме */
+body.theme-dark .ant-pagination {
+  background: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .ant-pagination-total-text {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .ant-pagination-item {
+  background: #1f1f1f !important;
+  border-color: #434343 !important;
+}
+
+body.theme-dark .ant-pagination-item a {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .ant-pagination-item-active {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+}
+
+body.theme-dark .ant-pagination-item-active a {
+  color: #fff !important;
+}
+
+body.theme-dark .ant-pagination-prev,
+body.theme-dark .ant-pagination-next {
+  background: #1f1f1f !important;
+  border-color: #434343 !important;
+}
+
+body.theme-dark .ant-pagination-prev .anticon,
+body.theme-dark .ant-pagination-next .anticon {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .ant-pagination-prev.ant-pagination-disabled,
+body.theme-dark .ant-pagination-next.ant-pagination-disabled {
+  opacity: 0.3;
+}
+
+body.theme-dark .ant-select-selector {
+  background: #1f1f1f !important;
+  border-color: #434343 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .ant-select-selection-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.theme-dark .ant-select-arrow .anticon {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+body.theme-dark .ant-select-dropdown {
+  background: #1f1f1f !important;
+}
+
+body.theme-dark .ant-select-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background: #1f1f1f !important;
+}
+
+body.theme-dark .ant-select-item:hover,
+body.theme-dark .ant-select-item-option-active {
+  background: #262626 !important;
+}
+
+body.theme-dark .ant-select-item-option-selected {
+  background: #111b26 !important;
+  color: #1890ff !important;
+}
+
+/* Убираем margin у пагинации таблицы */
+.ant-table-wrapper .ant-table-pagination.ant-pagination {
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Стили для текста названия записи в темной теме - используем селектор по атрибуту class */
+body.theme-dark .ant-table-tbody > tr > td span[class*="titleText"],
+body.theme-dark .ant-table-tbody > tr > td [class*="titleText"] {
+  color: rgba(255, 255, 255, 0.85) !important;
+}

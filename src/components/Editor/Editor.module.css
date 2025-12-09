@@ -3,3 +3,25 @@
     padding-right: 10px;
     padding-bottom: 10px;
 }
+
+/* Стили для заголовков в редакторе при темной теме */
+body.theme-dark .editor .remirror-editor h1,
+body.theme-dark .editor .remirror-editor h2,
+body.theme-dark .editor .remirror-editor h3,
+body.theme-dark .editor .remirror-editor h4,
+body.theme-dark .editor .remirror-editor h5,
+body.theme-dark .editor .remirror-editor h6,
+body.theme-dark .editor .remirror-theme h1,
+body.theme-dark .editor .remirror-theme h2,
+body.theme-dark .editor .remirror-theme h3,
+body.theme-dark .editor .remirror-theme h4,
+body.theme-dark .editor .remirror-theme h5,
+body.theme-dark .editor .remirror-theme h6,
+body.theme-dark .editor .ProseMirror h1,
+body.theme-dark .editor .ProseMirror h2,
+body.theme-dark .editor .ProseMirror h3,
+body.theme-dark .editor .ProseMirror h4,
+body.theme-dark .editor .ProseMirror h5,
+body.theme-dark .editor .ProseMirror h6 {
+  color: rgba(255, 255, 255, 0.85) !important;
+}

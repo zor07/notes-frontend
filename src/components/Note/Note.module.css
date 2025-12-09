@@ -1,4 +1,163 @@
 .content {
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 24px;
+    min-height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+}
+
+.backButton {
+    margin-top: 8px;
+}
+
+.titleSection {
+    flex: 1;
+}
+
+.pageTitle {
+    margin: 0 0 4px 0 !important;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.notebookDescription {
+    font-size: 14px;
+    color: #8c8c8c;
+}
+
+.searchInput {
+    max-width: 300px;
+    min-width: 200px;
+}
+
+.tableContainer {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.notesTable {
+    background: #fff;
+}
+
+.notesTable :global(.ant-table) {
+    background: #fff;
+}
+
+.notesTable :global(.ant-table-thead > tr > th) {
+    background: #fafafa;
+    font-weight: 600;
+    color: #262626;
+    border-bottom: 2px solid #f0f0f0;
+    padding: 16px;
+}
+
+.notesTable :global(.ant-table-tbody > tr > td) {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.tableRow {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tableRow:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.tableRow:hover :global(.ant-table-cell) {
+    background-color: #f5f5f5 !important;
+}
+
+.titleCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.titleIcon {
+    font-size: 18px;
+    color: #1890ff;
+    flex-shrink: 0;
+}
+
+.titleText {
+    font-size: 14px;
+    color: #262626;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.actionButton {
+    transition: all 0.2s ease;
+}
+
+.actionButton:hover {
+    background-color: rgba(24, 144, 255, 0.1);
+    color: #1890ff;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.emptyStateIcon {
+    font-size: 64px;
+    color: #d9d9d9;
+    margin-bottom: 16px;
+}
+
+.emptyStateTitle {
+    font-size: 20px;
+    color: #595959;
+    margin-bottom: 8px !important;
+}
+
+.emptyStateDescription {
+    font-size: 14px;
+    color: #8c8c8c;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .headerLeft {
+        flex-direction: column;
+    }
+    
+    .searchInput {
+        max-width: 100%;
+    }
+    
+    .tableContainer {
+        overflow-x: auto;
+    }
+    
+    .notesTable :global(.ant-table-thead > tr > th),
+    .notesTable :global(.ant-table-tbody > tr > td) {
+        padding: 12px 8px;
+    }
 }

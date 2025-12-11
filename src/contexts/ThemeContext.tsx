@@ -15,6 +15,8 @@ export type DarkPalette = {
     selection: string;
     selectionStrong: string;
     shadowStrong: string;
+    buttonPrimaryBg: string;
+    buttonPrimaryText: string;
 };
 
 interface ThemeContextType {
@@ -43,6 +45,8 @@ const DEFAULT_DARK_PALETTE: DarkPalette = {
     selection: '#262626',
     selectionStrong: '#111b26',
     shadowStrong: 'rgba(0, 0, 0, 0.3)',
+    buttonPrimaryBg: '#1890ff',
+    buttonPrimaryText: '#ffffff',
 };
 
 const applyPaletteToDocument = (palette: DarkPalette) => {

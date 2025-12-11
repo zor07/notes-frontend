@@ -1,0 +1,36 @@
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.modalBody {
+    max-height: 70vh;
+    overflow: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.swatch {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.helper {
+    display: block;
+    margin-top: -4px;
+}
+
+.colorRow {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 8px;
+}

@@ -57,6 +57,12 @@ const AppWithTheme = () => {
                     colorBorder: theme === 'dark' ? palette.border : '#d9d9d9',
                     colorBgElevated: theme === 'dark' ? palette.surface : '#fff',
                 },
+                Button: theme === 'dark' ? {
+                    colorPrimary: palette.buttonPrimaryBg,
+                    colorPrimaryHover: palette.buttonPrimaryBg,
+                    colorPrimaryActive: palette.buttonPrimaryBg,
+                    colorTextLightSolid: palette.buttonPrimaryText,
+                } : {},
             },
         }}>
             <Layout>

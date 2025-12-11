@@ -48,6 +48,7 @@
   --dark-selection-strong: #111b26;
   --dark-shadow-strong: rgba(0, 0, 0, 0.3);
   --dark-editor-text: rgba(255, 255, 255, 0.85);
+  --dark-navbar-bg: #1f1f1f;
 }
 
 .site-layout-background {

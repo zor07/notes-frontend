@@ -138,6 +138,41 @@ body.theme-dark .ant-select-item-option-selected {
   color: var(--dark-accent, #1890ff) !important;
 }
 
+/* Tabs (глобально, чтобы перебить dev-only классы Ant) */
+body.theme-dark .ant-tabs .ant-tabs-tab-btn {
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+body.theme-dark .ant-tabs .ant-tabs-tab:hover .ant-tabs-tab-btn {
+  color: var(--dark-accent, #1890ff) !important;
+}
+
+body.theme-dark .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--dark-buttonPrimaryText, var(--dark-accent-contrast, #ffffff)) !important;
+}
+
+body.theme-dark .ant-tabs .ant-tabs-tab.ant-tabs-tab-active {
+  background-color: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
+  color: var(--dark-buttonPrimaryText, var(--dark-accent-contrast, #ffffff)) !important;
+}
+
+body.theme-dark .ant-tabs .ant-tabs-ink-bar {
+  background: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
+}
+
+/* Повышенная специфичность для текста табов */
+body.theme-dark .ant-tabs .ant-tabs-nav .ant-tabs-tab .ant-tabs-tab-btn {
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+body.theme-dark .ant-tabs .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--dark-buttonPrimaryText, var(--dark-accent-contrast, #ffffff)) !important;
+}
+
+body.theme-dark .ant-tabs .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active {
+  background-color: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
+}
+
 /* Убираем margin у пагинации таблицы */
 .ant-table-wrapper .ant-table-pagination.ant-pagination {
   margin: 0 !important;

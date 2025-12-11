@@ -189,23 +189,76 @@ body.theme-dark .noteTabs :global(.ant-tabs-nav) {
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-tab) {
-    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85)));
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-tab-btn) {
-    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85)));
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-tab:hover .ant-tabs-tab-btn) {
-    color: var(--dark-accent, #1890ff);
+    color: var(--dark-accent, #1890ff) !important;
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-tab-active .ant-tabs-tab-btn) {
-    color: var(--dark-accent, #1890ff);
+    color: var(--dark-buttonPrimaryText, var(--dark-accent, #1890ff)) !important;
+    background: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
+}
+
+/* Повышенная специфичность для dev-only ant-tabs классов */
+body.theme-dark :global(.ant-tabs[class*="Note_noteTabs"] .ant-tabs-tab-btn) {
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+body.theme-dark :global(.ant-tabs[class*="Note_noteTabs"] .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: var(--dark-buttonPrimaryText, var(--dark-accent, #1890ff)) !important;
+}
+
+body.theme-dark :global(.ant-tabs[class*="Note_noteTabs"] .ant-tabs-tab.ant-tabs-tab-active) {
+    background: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
+}
+
+/* Дополнительная специфичность для ant-tabs с dev-only классами */
+body.theme-dark :global(.Note_noteTabs__f5Wlj .ant-tabs-tab-btn) {
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+body.theme-dark :global(.Note_noteTabs__f5Wlj .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: var(--dark-buttonPrimaryText, var(--dark-accent, #1890ff)) !important;
+}
+
+body.theme-dark :global(.Note_noteTabs__f5Wlj .ant-tabs-tab.ant-tabs-tab-active) {
+    background: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
+}
+
+/* Привязка цвета, если класс noteTabs сидит на корневом .ant-tabs */
+body.theme-dark :global(.ant-tabs.Note_noteTabs__f5Wlj .ant-tabs-tab-btn) {
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+body.theme-dark :global(.ant-tabs.Note_noteTabs__f5Wlj .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: var(--dark-buttonPrimaryText, var(--dark-accent, #1890ff)) !important;
+}
+
+body.theme-dark :global(.ant-tabs.Note_noteTabs__f5Wlj .ant-tabs-tab.ant-tabs-tab-active) {
+    background: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
+}
+
+/* Фоллбэк — перекрываем все вкладки Ant в тёмной теме цветами редактора/кнопки */
+body.theme-dark :global(.ant-tabs .ant-tabs-tab-btn) {
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+body.theme-dark :global(.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: var(--dark-buttonPrimaryText, var(--dark-accent, #1890ff)) !important;
+}
+
+body.theme-dark :global(.ant-tabs .ant-tabs-tab.ant-tabs-tab-active) {
+    background: var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff)) !important;
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-ink-bar) {
-    background: var(--dark-accent, #1890ff);
+    background: var(--dark-button-primaryBg, var(--dark-accent, #1890ff));
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-content-holder),

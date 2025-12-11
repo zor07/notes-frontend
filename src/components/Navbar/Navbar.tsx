@@ -21,7 +21,7 @@ type NavbarPropsType = {
 
 const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks, notebook, note}) => {
     const location = useLocation()
-    const { theme, toggleTheme } = useTheme()
+    const { theme, toggleTheme, darkPalette } = useTheme()
 
     let breadCrumbs;
 
@@ -113,7 +113,12 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
 
 
     return (
-        <Menu theme={theme === 'dark' ? 'dark' : 'light'} mode='horizontal' className={css.navbar}>
+        <Menu
+            theme={theme === 'dark' ? 'dark' : 'light'}
+            mode='horizontal'
+            className={css.navbar}
+            style={theme === 'dark' ? { background: darkPalette.navbarBg } : undefined}
+        >
             <div className={css.navContent}>
                 <div className={css.left}>
                     {isAuth &&

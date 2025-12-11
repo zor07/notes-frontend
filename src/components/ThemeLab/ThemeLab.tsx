@@ -28,6 +28,7 @@ const paletteFields: Array<{
     {key: 'buttonPrimaryBg', label: 'Кнопка (фон)', type: 'color'},
     {key: 'buttonPrimaryText', label: 'Кнопка (текст)', type: 'color'},
     {key: 'editorText', label: 'Текст редактора', helper: 'rgba допускается', type: 'colorAlpha'},
+    {key: 'navbarBg', label: 'Фон навбара', type: 'color'},
 ];
 
 const ThemeLab: React.FC = () => {

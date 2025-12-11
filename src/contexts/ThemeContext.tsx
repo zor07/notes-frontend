@@ -18,6 +18,7 @@ export type DarkPalette = {
     buttonPrimaryBg: string;
     buttonPrimaryText: string;
     editorText: string;
+    navbarBg: string;
 };
 
 interface ThemeContextType {
@@ -49,6 +50,7 @@ const DEFAULT_DARK_PALETTE: DarkPalette = {
     buttonPrimaryBg: '#1890ff',
     buttonPrimaryText: '#ffffff',
     editorText: 'rgba(255, 255, 255, 0.85)',
+    navbarBg: '#1f1f1f',
 };
 
 const applyPaletteToDocument = (palette: DarkPalette) => {

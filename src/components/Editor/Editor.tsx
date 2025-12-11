@@ -17,7 +17,7 @@ import {
     UnderlineExtension,
     wysiwygPreset
 } from "remirror/extensions";
-import {EditorComponent, Remirror, useHelpers, useKeymap, useRemirror} from "@remirror/react";
+import {EditorComponent, Remirror, useHelpers, useKeymap, useRemirror, useCommands} from "@remirror/react";
 import Toolbar from "./Toolbar/Toolbar";
 import {htmlToProsemirrorNode, PrimitiveSelection, RemirrorContentType} from "remirror";
 import MyItalicExtension from "./extensions/MyItalicExtension";
@@ -81,6 +81,18 @@ const hooks = [
         );
         // "Mod" means platform agnostic modifier key - i.e. Ctrl on Windows, or Cmd on MacOS
         useKeymap("Mod-s", handleSaveShortcut);
+    },
+    () => {
+        const {insertText} = useCommands();
+        const handleTab = useCallback(
+            () => {
+                // Вставляем 4 пробела вместо табуляции
+                insertText("    ");
+                return true; // Prevents default Tab behavior
+            },
+            [insertText]
+        );
+        useKeymap("Tab", handleTab);
     }
 ];
 

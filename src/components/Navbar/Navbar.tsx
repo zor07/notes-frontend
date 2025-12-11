@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
-import {Avatar, Breadcrumb, Dropdown, Menu, Switch, Space, Typography} from 'antd';
-import {HomeOutlined, LoginOutlined, LogoutOutlined, BulbOutlined} from '@ant-design/icons';
+import {Breadcrumb, Dropdown, Menu, Switch, Space, Typography} from 'antd';
+import {HomeOutlined, LoginOutlined, LogoutOutlined, BulbOutlined, UserOutlined} from '@ant-design/icons';
 import {NotebookType} from "../../redux/notebook-reducer";
 import {NoteType} from "../../redux/note-editor-reducer";
 import {useTheme} from "../../contexts/ThemeContext";
@@ -50,7 +50,10 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
             <Breadcrumb.Item href="" key='profile'>
                 <Dropdown menu={userMenu}>
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                        <Avatar src="https://joeschmoe.io/api/v1/random"/> {username}
+                            <Space size={8} align="center" className={css.userTrigger}>
+                                <span className={css.userIcon}><UserOutlined /></span>
+                                <Text>{username}</Text>
+                            </Space>
                     </a>
                 </Dropdown>
             </Breadcrumb.Item>
@@ -64,7 +67,10 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
             <Breadcrumb.Item href="" key='profile'>
                 <Dropdown menu={userMenu}>
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                        <Avatar src="https://joeschmoe.io/api/v1/random"/> {username}
+                        <Space size={8} align="center" className={css.userTrigger}>
+                            <span className={css.userIcon}><UserOutlined /></span>
+                            <Text>{username}</Text>
+                        </Space>
                     </a>
                 </Dropdown>
             </Breadcrumb.Item>
@@ -82,7 +88,10 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
             <Breadcrumb.Item href="" key='profile'>
                 <Dropdown menu={userMenu}>
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                        <Avatar src="https://joeschmoe.io/api/v1/random"/> {username}
+                        <Space size={8} align="center" className={css.userTrigger}>
+                            <span className={css.userIcon}><UserOutlined /></span>
+                            <Text>{username}</Text>
+                        </Space>
                     </a>
                 </Dropdown>
             </Breadcrumb.Item>

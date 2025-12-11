@@ -3,6 +3,10 @@
     min-height: 100%;
 }
 
+body.theme-dark .content {
+    background: var(--dark-surface, #1f1f1f);
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -51,8 +55,8 @@
 }
 
 body.theme-dark .tableContainer {
-    background: #1f1f1f !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: var(--dark-surface, #1f1f1f) !important;
+    box-shadow: 0 2px 8px var(--dark-shadow-strong, rgba(0, 0, 0, 0.3));
 }
 
 .notesTable {
@@ -60,7 +64,7 @@ body.theme-dark .tableContainer {
 }
 
 body.theme-dark .notesTable {
-    background: #1f1f1f !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 .notesTable :global(.ant-table) {
@@ -68,7 +72,7 @@ body.theme-dark .notesTable {
 }
 
 body.theme-dark .notesTable :global(.ant-table) {
-    background: #1f1f1f !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 .notesTable :global(.ant-table-container) {
@@ -76,7 +80,7 @@ body.theme-dark .notesTable :global(.ant-table) {
 }
 
 body.theme-dark .notesTable :global(.ant-table-container) {
-    background: #1f1f1f !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 .notesTable :global(.ant-table-thead > tr > th) {
@@ -88,9 +92,9 @@ body.theme-dark .notesTable :global(.ant-table-container) {
 }
 
 body.theme-dark .notesTable :global(.ant-table-thead > tr > th) {
-    background: #262626 !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    border-bottom: 2px solid #434343 !important;
+    background: var(--dark-surface-elevated, #262626) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+    border-bottom: 2px solid var(--dark-border, #434343) !important;
 }
 
 .notesTable :global(.ant-table-tbody) {
@@ -98,7 +102,7 @@ body.theme-dark .notesTable :global(.ant-table-thead > tr > th) {
 }
 
 body.theme-dark .notesTable :global(.ant-table-tbody) {
-    background: #1f1f1f !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 .notesTable :global(.ant-table-tbody > tr) {
@@ -106,7 +110,7 @@ body.theme-dark .notesTable :global(.ant-table-tbody) {
 }
 
 body.theme-dark .notesTable :global(.ant-table-tbody > tr) {
-    background: #1f1f1f !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 .notesTable :global(.ant-table-tbody > tr > td) {
@@ -117,13 +121,13 @@ body.theme-dark .notesTable :global(.ant-table-tbody > tr) {
 }
 
 body.theme-dark .notesTable :global(.ant-table-tbody > tr > td) {
-    border-bottom: 1px solid #434343 !important;
-    background: #1f1f1f !important;
-    color: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 1px solid var(--dark-border, #434343) !important;
+    background: var(--dark-surface, #1f1f1f) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-table-tbody > tr > td *) {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 .notesTable :global(.ant-table-cell) {
@@ -131,7 +135,7 @@ body.theme-dark .notesTable :global(.ant-table-tbody > tr > td *) {
 }
 
 body.theme-dark .notesTable :global(.ant-table-cell) {
-    background: #1f1f1f !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 .tableRow {
@@ -144,7 +148,7 @@ body.theme-dark .notesTable :global(.ant-table-cell) {
 }
 
 body.theme-dark .tableRow:hover {
-    background-color: #262626 !important;
+    background-color: var(--dark-selection, #262626) !important;
 }
 
 .tableRow:hover :global(.ant-table-cell) {
@@ -152,11 +156,69 @@ body.theme-dark .tableRow:hover {
 }
 
 body.theme-dark .tableRow:hover :global(.ant-table-cell) {
-    background-color: #262626 !important;
+    background-color: var(--dark-selection, #262626) !important;
 }
 
 body.theme-dark .tableRow:hover :global(.ant-table-tbody > tr > td) {
-    background-color: #262626 !important;
+    background-color: var(--dark-selection, #262626) !important;
+}
+
+.noteTabs {
+    background: transparent;
+}
+
+.noteTabs :global(.ant-tabs) {
+    background: transparent;
+}
+
+body.theme-dark .noteTabs {
+    background: var(--dark-surface, #1f1f1f) !important;
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs) {
+    background: var(--dark-surface, #1f1f1f) !important;
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-nav-wrap),
+body.theme-dark .noteTabs :global(.ant-tabs-nav-list) {
+    background: var(--dark-surface, #1f1f1f) !important;
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-nav) {
+    background: var(--dark-surface, #1f1f1f);
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-tab) {
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85));
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-tab-btn) {
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85));
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-tab:hover .ant-tabs-tab-btn) {
+    color: var(--dark-accent, #1890ff);
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: var(--dark-accent, #1890ff);
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-ink-bar) {
+    background: var(--dark-accent, #1890ff);
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-content-holder),
+body.theme-dark .noteTabs :global(.ant-tabs-content) {
+    background: var(--dark-surface, #1f1f1f);
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-tab) {
+    background: var(--dark-surface, #1f1f1f);
+}
+
+body.theme-dark .noteTabs :global(.ant-tabs-tab-active) {
+    background: var(--dark-surface-elevated, #262626);
 }
 
 /* Стили для пагинации */
@@ -169,41 +231,41 @@ body.theme-dark .tableRow:hover :global(.ant-table-tbody > tr > td) {
 
 /* Стили для пагинации в темной теме */
 body.theme-dark .notesTable :global(.ant-pagination) {
-    background: #1f1f1f !important;
-    color: rgba(255, 255, 255, 0.85) !important;
+    background: var(--dark-surface, #1f1f1f) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-total-text) {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-item) {
-    background: #1f1f1f !important;
-    border-color: #434343 !important;
+    background: var(--dark-surface, #1f1f1f) !important;
+    border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-item a) {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-item-active) {
-    background: #1890ff !important;
-    border-color: #1890ff !important;
+    background: var(--dark-accent, #1890ff) !important;
+    border-color: var(--dark-accent, #1890ff) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-item-active a) {
-    color: #fff !important;
+    color: var(--dark-accent-contrast, #ffffff) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-prev),
 body.theme-dark .notesTable :global(.ant-pagination-next) {
-    background: #1f1f1f !important;
-    border-color: #434343 !important;
+    background: var(--dark-surface, #1f1f1f) !important;
+    border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-prev .anticon),
 body.theme-dark .notesTable :global(.ant-pagination-next .anticon) {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-pagination-prev.ant-pagination-disabled),
@@ -212,36 +274,36 @@ body.theme-dark .notesTable :global(.ant-pagination-next.ant-pagination-disabled
 }
 
 body.theme-dark .notesTable :global(.ant-select-selector) {
-    background: #1f1f1f !important;
-    border-color: #434343 !important;
-    color: rgba(255, 255, 255, 0.85) !important;
+    background: var(--dark-surface, #1f1f1f) !important;
+    border-color: var(--dark-border, #434343) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-select-selection-item) {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-select-arrow .anticon) {
-    color: rgba(255, 255, 255, 0.45) !important;
+    color: var(--dark-text-muted, rgba(255, 255, 255, 0.45)) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-select-dropdown) {
-    background: #1f1f1f !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-select-item) {
-    color: rgba(255, 255, 255, 0.85) !important;
-    background: #1f1f1f !important;
+    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+    background: var(--dark-surface, #1f1f1f) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-select-item:hover),
 body.theme-dark .notesTable :global(.ant-select-item-option-active) {
-    background: #262626 !important;
+    background: var(--dark-selection, #262626) !important;
 }
 
 body.theme-dark .notesTable :global(.ant-select-item-option-selected) {
-    background: #111b26 !important;
-    color: #1890ff !important;
+    background: var(--dark-selection-strong, #111b26) !important;
+    color: var(--dark-accent, #1890ff) !important;
 }
 
 .titleCell {
@@ -257,7 +319,7 @@ body.theme-dark .notesTable :global(.ant-select-item-option-selected) {
 }
 
 body.theme-dark .titleIcon {
-    color: #1890ff !important;
+    color: var(--dark-accent, #1890ff) !important;
 }
 
 .titleText {

@@ -31,7 +31,12 @@ body.theme-dark .ProseMirror h3,
 body.theme-dark .ProseMirror h4,
 body.theme-dark .ProseMirror h5,
 body.theme-dark .ProseMirror h6 {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+}
+
+body.theme-dark .remirror-editor,
+body.theme-dark .ProseMirror {
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 /* Глобальные стили для таблицы в темной теме */
@@ -42,57 +47,57 @@ body.theme-dark .ant-table-tbody > tr,
 body.theme-dark .ant-table-tbody > tr > td,
 body.theme-dark .ant-table-thead > tr > th,
 body.theme-dark .ant-table-cell {
-  background: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  border-color: #434343 !important;
+  background: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .ant-table-thead > tr > th {
-  background: #262626 !important;
+  background: var(--dark-surface-elevated, #262626) !important;
 }
 
 body.theme-dark .ant-table-tbody > tr:hover > td,
 body.theme-dark .ant-table-tbody > tr:hover {
-  background: #262626 !important;
+  background: var(--dark-selection, #262626) !important;
 }
 
 /* Стили для пагинации в темной теме */
 body.theme-dark .ant-pagination {
-  background: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.85) !important;
+  background: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .ant-pagination-total-text {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .ant-pagination-item {
-  background: #1f1f1f !important;
-  border-color: #434343 !important;
+  background: var(--dark-surface, #1f1f1f) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .ant-pagination-item a {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .ant-pagination-item-active {
-  background: #1890ff !important;
-  border-color: #1890ff !important;
+  background: var(--dark-accent, #1890ff) !important;
+  border-color: var(--dark-accent, #1890ff) !important;
 }
 
 body.theme-dark .ant-pagination-item-active a {
-  color: #fff !important;
+  color: var(--dark-accent-contrast, #ffffff) !important;
 }
 
 body.theme-dark .ant-pagination-prev,
 body.theme-dark .ant-pagination-next {
-  background: #1f1f1f !important;
-  border-color: #434343 !important;
+  background: var(--dark-surface, #1f1f1f) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .ant-pagination-prev .anticon,
 body.theme-dark .ant-pagination-next .anticon {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .ant-pagination-prev.ant-pagination-disabled,
@@ -101,36 +106,36 @@ body.theme-dark .ant-pagination-next.ant-pagination-disabled {
 }
 
 body.theme-dark .ant-select-selector {
-  background: #1f1f1f !important;
-  border-color: #434343 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
+  background: var(--dark-surface, #1f1f1f) !important;
+  border-color: var(--dark-border, #434343) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .ant-select-selection-item {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .ant-select-arrow .anticon {
-  color: rgba(255, 255, 255, 0.45) !important;
+  color: var(--dark-text-muted, rgba(255, 255, 255, 0.45)) !important;
 }
 
 body.theme-dark .ant-select-dropdown {
-  background: #1f1f1f !important;
+  background: var(--dark-surface, #1f1f1f) !important;
 }
 
 body.theme-dark .ant-select-item {
-  color: rgba(255, 255, 255, 0.85) !important;
-  background: #1f1f1f !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  background: var(--dark-surface, #1f1f1f) !important;
 }
 
 body.theme-dark .ant-select-item:hover,
 body.theme-dark .ant-select-item-option-active {
-  background: #262626 !important;
+  background: var(--dark-selection, #262626) !important;
 }
 
 body.theme-dark .ant-select-item-option-selected {
-  background: #111b26 !important;
-  color: #1890ff !important;
+  background: var(--dark-selection-strong, #111b26) !important;
+  color: var(--dark-accent, #1890ff) !important;
 }
 
 /* Убираем margin у пагинации таблицы */
@@ -143,13 +148,13 @@ body.theme-dark .ant-select-item-option-selected {
 /* Стили для текста названия записи в темной теме - используем селектор по атрибуту class */
 body.theme-dark .ant-table-tbody > tr > td span[class*="titleText"],
 body.theme-dark .ant-table-tbody > tr > td [class*="titleText"] {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 /* Стили для тулбара редактора в темной теме */
 body.theme-dark .remirror-toolbar {
-  background-color: #1f1f1f !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-group {
@@ -157,60 +162,60 @@ body.theme-dark .remirror-toolbar .remirror-group {
 }
 
 body.theme-dark .remirror-toolbar .remirror-separator {
-  background-color: #434343 !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-border, #434343) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar button,
 body.theme-dark .remirror-toolbar .remirror-button {
   background-color: transparent !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  border-color: #434343 !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar button:hover:not(:disabled),
 body.theme-dark .remirror-toolbar .remirror-button:hover:not(:disabled) {
-  background-color: #262626 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: var(--dark-selection, #262626) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .remirror-toolbar button:active:not(:disabled),
 body.theme-dark .remirror-toolbar button[aria-pressed="true"],
 body.theme-dark .remirror-toolbar .remirror-button-active {
-  background-color: #1890ff !important;
-  color: #fff !important;
+  background-color: var(--dark-accent, #1890ff) !important;
+  color: var(--dark-accent-contrast, #ffffff) !important;
 }
 
 body.theme-dark .remirror-toolbar button:disabled,
 body.theme-dark .remirror-toolbar .remirror-button:disabled {
-  background-color: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.25) !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-disabled, rgba(255, 255, 255, 0.25)) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 /* Стили для селекта выбора языка в темной теме */
 body.theme-dark .remirror-toolbar .remirror-select,
 body.theme-dark .remirror-toolbar select {
-  background-color: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-select:hover,
 body.theme-dark .remirror-toolbar select:hover {
-  background-color: #262626 !important;
+  background-color: var(--dark-selection, #262626) !important;
   border-color: #595959 !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-select:focus,
 body.theme-dark .remirror-toolbar select:focus {
-  background-color: #1f1f1f !important;
-  border-color: #1890ff !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  border-color: var(--dark-accent, #1890ff) !important;
   outline: none !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-select option,
 body.theme-dark .remirror-toolbar select option {
-  background-color: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }

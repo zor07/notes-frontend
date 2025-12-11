@@ -13,6 +13,7 @@ import NotebookListContainer from "./components/Notebook/NotebookListContainer";
 import NoteListContainer from "./components/Note/NoteListContainer";
 import NoteEditorContainer from "./components/Note/NoteEditorContainer";
 import Register from "./components/Login/Register";
+import ThemeLab from "./components/ThemeLab/ThemeLab";
 import {ThemeProvider, useTheme} from "./contexts/ThemeContext";
 
 class App extends Component {
@@ -27,33 +28,34 @@ class App extends Component {
 }
 
 const AppWithTheme = () => {
-    const { theme } = useTheme();
+    const { theme, darkPalette } = useTheme();
     const { defaultAlgorithm, darkAlgorithm } = antdTheme;
     const {Content} = Layout;
+    const palette = darkPalette;
 
     return (
         <ConfigProvider theme={{
             algorithm: theme === 'dark' ? darkAlgorithm : defaultAlgorithm,
             components: {
                 Table: {
-                    headerBg: theme === 'dark' ? '#262626' : '#fafafa',
-                    headerColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.85)' : '#262626',
-                    colorBgContainer: theme === 'dark' ? '#1f1f1f' : '#fff',
-                    colorText: theme === 'dark' ? 'rgba(255, 255, 255, 0.85)' : '#262626',
-                    borderColor: theme === 'dark' ? '#434343' : '#f0f0f0',
-                    rowHoverBg: theme === 'dark' ? '#262626' : '#f5f5f5',
+                    headerBg: theme === 'dark' ? palette.surfaceElevated : '#fafafa',
+                    headerColor: theme === 'dark' ? palette.textPrimary : '#262626',
+                    colorBgContainer: theme === 'dark' ? palette.surface : '#fff',
+                    colorText: theme === 'dark' ? palette.textPrimary : '#262626',
+                    borderColor: theme === 'dark' ? palette.border : '#f0f0f0',
+                    rowHoverBg: theme === 'dark' ? palette.selection : '#f5f5f5',
                 },
                 Pagination: {
-                    colorBgContainer: theme === 'dark' ? '#1f1f1f' : '#fff',
-                    colorText: theme === 'dark' ? 'rgba(255, 255, 255, 0.85)' : '#262626',
-                    itemActiveBg: theme === 'dark' ? '#1890ff' : '#1890ff',
-                    itemLinkBg: theme === 'dark' ? '#1f1f1f' : '#fff',
+                    colorBgContainer: theme === 'dark' ? palette.surface : '#fff',
+                    colorText: theme === 'dark' ? palette.textPrimary : '#262626',
+                    itemActiveBg: theme === 'dark' ? palette.accent : '#1890ff',
+                    itemLinkBg: theme === 'dark' ? palette.surface : '#fff',
                 },
                 Select: {
-                    colorBgContainer: theme === 'dark' ? '#1f1f1f' : '#fff',
-                    colorText: theme === 'dark' ? 'rgba(255, 255, 255, 0.85)' : '#262626',
-                    colorBorder: theme === 'dark' ? '#434343' : '#d9d9d9',
-                    colorBgElevated: theme === 'dark' ? '#1f1f1f' : '#fff',
+                    colorBgContainer: theme === 'dark' ? palette.surface : '#fff',
+                    colorText: theme === 'dark' ? palette.textPrimary : '#262626',
+                    colorBorder: theme === 'dark' ? palette.border : '#d9d9d9',
+                    colorBgElevated: theme === 'dark' ? palette.surface : '#fff',
                 },
             },
         }}>
@@ -73,6 +75,7 @@ const AppWithTheme = () => {
                                 <Route path='/notebooks' element={<NotebookListContainer/>}/>
                                 <Route path='/notebooks/:notebookId/notes' element={<NoteListContainer/>}/>
                                 <Route path='/notebooks/:notebookId/notes/:noteId' element={<NoteEditorContainer/>}/>
+                                <Route path='/theme-lab' element={<ThemeLab/>}/>
                                 <Route path='/login' element={<Login/>}/>
                                 <Route path='/register' element={<Register/>}/>
                             </Routes>

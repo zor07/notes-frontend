@@ -4,6 +4,26 @@
     padding-bottom: 10px;
 }
 
+body.theme-dark .editor {
+  background: var(--dark-surface, #1f1f1f);
+  border-radius: 8px;
+}
+
+body.theme-dark .remirror-theme {
+  background: var(--dark-surface, #1f1f1f) !important;
+}
+
+body.theme-dark .remirror-theme :global(.remirror-editor) {
+  background: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  border: 1px solid var(--dark-border, #434343) !important;
+}
+
+body.theme-dark .remirror-theme :global(.remirror-editor .ProseMirror) {
+  background: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+}
+
 /* Стили для заголовков в редакторе при темной теме */
 body.theme-dark .editor .remirror-editor h1,
 body.theme-dark .editor .remirror-editor h2,
@@ -23,13 +43,13 @@ body.theme-dark .editor .ProseMirror h3,
 body.theme-dark .editor .ProseMirror h4,
 body.theme-dark .editor .ProseMirror h5,
 body.theme-dark .editor .ProseMirror h6 {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 /* Стили для тулбара в темной теме */
 body.theme-dark .remirror-toolbar {
-  background-color: #1f1f1f !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-group {
@@ -37,56 +57,56 @@ body.theme-dark .remirror-toolbar .remirror-group {
 }
 
 body.theme-dark .remirror-toolbar .remirror-separator {
-  background-color: #434343 !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-border, #434343) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar button {
   background-color: transparent !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  border-color: #434343 !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar button:hover:not(:disabled) {
-  background-color: #262626 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: var(--dark-selection, #262626) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }
 
 body.theme-dark .remirror-toolbar button:active:not(:disabled),
 body.theme-dark .remirror-toolbar button[aria-pressed="true"] {
-  background-color: #1890ff !important;
-  color: #fff !important;
+  background-color: var(--dark-accent, #1890ff) !important;
+  color: var(--dark-accent-contrast, #ffffff) !important;
 }
 
 body.theme-dark .remirror-toolbar button:disabled {
-  background-color: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.25) !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-disabled, rgba(255, 255, 255, 0.25)) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 /* Стили для селекта выбора языка в темной теме */
 body.theme-dark .remirror-toolbar .remirror-select,
 body.theme-dark .remirror-toolbar select {
-  background-color: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  border-color: #434343 !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  border-color: var(--dark-border, #434343) !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-select:hover,
 body.theme-dark .remirror-toolbar select:hover {
-  background-color: #262626 !important;
+  background-color: var(--dark-selection, #262626) !important;
   border-color: #595959 !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-select:focus,
 body.theme-dark .remirror-toolbar select:focus {
-  background-color: #1f1f1f !important;
-  border-color: #1890ff !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  border-color: var(--dark-accent, #1890ff) !important;
   outline: none !important;
 }
 
 body.theme-dark .remirror-toolbar .remirror-select option,
 body.theme-dark .remirror-toolbar select option {
-  background-color: #1f1f1f !important;
-  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: var(--dark-surface, #1f1f1f) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }

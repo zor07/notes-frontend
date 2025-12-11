@@ -161,6 +161,7 @@ const NoteEditorContainer: React.FC<NoteContainerPropsType> = (props) => {
             <Tabs activeKey={params.noteId}
                   tabPosition={'right'}
                   onChange={handleTabChange}
+                  className={css.noteTabs}
                   style={{height: "max-content"}}>
                 {props.notes.map(noteItem => (
                     <TabPane tab={noteItem.title}

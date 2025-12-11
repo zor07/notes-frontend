@@ -33,13 +33,29 @@
   margin: 16px 0 16px 24px;
 }
 
+/* Базовые переменные темной темы (переопределяются из ThemeContext) */
+:root {
+  --dark-background: #141414;
+  --dark-surface: #1f1f1f;
+  --dark-surface-elevated: #262626;
+  --dark-border: #434343;
+  --dark-text-primary: rgba(255, 255, 255, 0.85);
+  --dark-text-muted: rgba(255, 255, 255, 0.45);
+  --dark-text-disabled: rgba(255, 255, 255, 0.25);
+  --dark-accent: #1890ff;
+  --dark-accent-contrast: #ffffff;
+  --dark-selection: #262626;
+  --dark-selection-strong: #111b26;
+  --dark-shadow-strong: rgba(0, 0, 0, 0.3);
+}
+
 .site-layout-background {
   background: #fff;
 }
 
 /* Поддержка темной темы через Ant Design 5 */
 body.theme-dark .site-layout-background {
-  background: #141414;
+  background: var(--dark-background, #141414);
 }
 
 html, body {
@@ -49,11 +65,11 @@ html, body {
 }
 
 body.theme-dark {
-  background-color: #141414;
+  background-color: var(--dark-background, #141414);
 }
 
 body.theme-dark .app-wrapper-content {
-  background-color: #1f1f1f;
+  background-color: var(--dark-surface, #1f1f1f);
 }
 
 /* Стили для заголовков в редакторе при темной теме (глобальные) */
@@ -75,5 +91,5 @@ body.theme-dark .ProseMirror h3,
 body.theme-dark .ProseMirror h4,
 body.theme-dark .ProseMirror h5,
 body.theme-dark .ProseMirror h6 {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
 }

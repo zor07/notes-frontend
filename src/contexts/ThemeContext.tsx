@@ -17,6 +17,7 @@ export type DarkPalette = {
     shadowStrong: string;
     buttonPrimaryBg: string;
     buttonPrimaryText: string;
+    editorText: string;
 };
 
 interface ThemeContextType {
@@ -47,11 +48,15 @@ const DEFAULT_DARK_PALETTE: DarkPalette = {
     shadowStrong: 'rgba(0, 0, 0, 0.3)',
     buttonPrimaryBg: '#1890ff',
     buttonPrimaryText: '#ffffff',
+    editorText: 'rgba(255, 255, 255, 0.85)',
 };
 
 const applyPaletteToDocument = (palette: DarkPalette) => {
     const root = document.documentElement;
     Object.entries(palette).forEach(([key, value]) => {
+        const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+        root.style.setProperty(`--dark-${kebabKey}`, value);
+        // Оставляем camelCase вариант для обратной совместимости
         root.style.setProperty(`--dark-${key}`, value);
     });
 };

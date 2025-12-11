@@ -31,12 +31,12 @@ body.theme-dark .ProseMirror h3,
 body.theme-dark .ProseMirror h4,
 body.theme-dark .ProseMirror h5,
 body.theme-dark .ProseMirror h6 {
-  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }
 
 body.theme-dark .remirror-editor,
 body.theme-dark .ProseMirror {
-  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }
 
 /* Глобальные стили для таблицы в темной теме */

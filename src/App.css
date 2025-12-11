@@ -47,6 +47,7 @@
   --dark-selection: #262626;
   --dark-selection-strong: #111b26;
   --dark-shadow-strong: rgba(0, 0, 0, 0.3);
+  --dark-editor-text: rgba(255, 255, 255, 0.85);
 }
 
 .site-layout-background {
@@ -66,6 +67,7 @@ html, body {
 
 body.theme-dark {
   background-color: var(--dark-background, #141414);
+  --rmr-color-text: var(--dark-editor-text, rgba(255, 255, 255, 0.85));
 }
 
 body.theme-dark .app-wrapper-content {
@@ -91,5 +93,5 @@ body.theme-dark .ProseMirror h3,
 body.theme-dark .ProseMirror h4,
 body.theme-dark .ProseMirror h5,
 body.theme-dark .ProseMirror h6 {
-  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }

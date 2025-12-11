@@ -27,6 +27,7 @@ const paletteFields: Array<{
     {key: 'shadowStrong', label: 'Тень', helper: 'rgba/hex', type: 'colorAlpha'},
     {key: 'buttonPrimaryBg', label: 'Кнопка (фон)', type: 'color'},
     {key: 'buttonPrimaryText', label: 'Кнопка (текст)', type: 'color'},
+    {key: 'editorText', label: 'Текст редактора', helper: 'rgba допускается', type: 'colorAlpha'},
 ];
 
 const ThemeLab: React.FC = () => {

@@ -189,11 +189,11 @@ body.theme-dark .noteTabs :global(.ant-tabs-nav) {
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-tab) {
-    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85));
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85)));
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-tab-btn) {
-    color: var(--dark-text-primary, rgba(255, 255, 255, 0.85));
+    color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85)));
 }
 
 body.theme-dark .noteTabs :global(.ant-tabs-tab:hover .ant-tabs-tab-btn) {

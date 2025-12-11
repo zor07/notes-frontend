@@ -21,7 +21,23 @@ body.theme-dark .remirror-theme :global(.remirror-editor) {
 
 body.theme-dark .remirror-theme :global(.remirror-editor .ProseMirror) {
   background: var(--dark-surface, #1f1f1f) !important;
-  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+/* Усиленные селекторы для текста редактора */
+body.theme-dark :global(.remirror-theme .remirror-editor.remirror-a11y-dark),
+body.theme-dark :global(.remirror-theme .remirror-editor.remirror-a11y-dark .ProseMirror),
+body.theme-dark :global(.remirror-theme .ProseMirror) {
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
+}
+
+body.theme-dark :global(.remirror-theme .ProseMirror h1),
+body.theme-dark :global(.remirror-theme .ProseMirror h2),
+body.theme-dark :global(.remirror-theme .ProseMirror h3),
+body.theme-dark :global(.remirror-theme .ProseMirror h4),
+body.theme-dark :global(.remirror-theme .ProseMirror h5),
+body.theme-dark :global(.remirror-theme .ProseMirror h6) {
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }
 
 /* Стили для заголовков в редакторе при темной теме */
@@ -43,7 +59,7 @@ body.theme-dark .editor .ProseMirror h3,
 body.theme-dark .editor .ProseMirror h4,
 body.theme-dark .editor .ProseMirror h5,
 body.theme-dark .editor .ProseMirror h6 {
-  color: var(--dark-text-primary, rgba(255, 255, 255, 0.85)) !important;
+  color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }
 
 /* Стили для тулбара в темной теме */

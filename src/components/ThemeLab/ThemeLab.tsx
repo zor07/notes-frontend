@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import {Card, Col, Divider, Form, Input, Row, Space, Tag, Typography, Button, Alert, Modal} from 'antd';
+import {Card, Col, Divider, Form, Input, Row, Space, Tag, Typography, Button, Alert, Modal, Select} from 'antd';
 import {useNavigate, useLocation} from 'react-router-dom';
-import {useTheme, DarkPalette} from '../../contexts/ThemeContext';
+import {useTheme, DarkPalette, DEFAULT_DARK_PALETTE} from '../../contexts/ThemeContext';
 
 import css from './ThemeLab.module.css';
 
@@ -34,6 +34,9 @@ const paletteFields: Array<{
 const ThemeLab: React.FC = () => {
     const {theme, darkPalette, updateDarkPalette, resetDarkPalette} = useTheme();
     const [form] = Form.useForm();
+    const presetOptions: Array<{value: string; label: string; palette: DarkPalette}> = [
+        {value: 'dark-default', label: 'Темная', palette: DEFAULT_DARK_PALETTE},
+    ];
     const navigate = useNavigate();
     const location = useLocation();
     const from = (location.state as {from?: string} | undefined)?.from;
@@ -91,6 +94,14 @@ const ThemeLab: React.FC = () => {
         updateDarkPalette({[key]: rgba});
     };
 
+    const handlePresetChange = (value: string) => {
+        const found = presetOptions.find(p => p.value === value);
+        if (found) {
+            updateDarkPalette(found.palette);
+            form.setFieldsValue(found.palette);
+        }
+    };
+
     const handleClose = () => {
         navigate(from || '/');
     };
@@ -123,13 +134,25 @@ const ThemeLab: React.FC = () => {
                             type="info"
                             message="Включите темную тему переключателем в хедере, чтобы увидеть изменения."
                             showIcon
-                        />
-                    )}
+                    />
+                )}
 
-                    <Card>
-                        <Divider orientation="left" plain>Цветовые параметры</Divider>
-                        <Form form={form} layout="vertical">
-                            <Row gutter={[16, 12]}>
+                <Card>
+                    <div className={css.presets}>
+                        <Space size={8} align="center">
+                            <Text strong>Выбрать тему:</Text>
+                            <Select
+                                style={{minWidth: 200}}
+                                options={presetOptions.map(p => ({value: p.value, label: p.label}))}
+                                onChange={handlePresetChange}
+                                placeholder="Выберите тему"
+                                value={undefined}
+                            />
+                        </Space>
+                    </div>
+                    <Divider orientation="left" plain>Цветовые параметры</Divider>
+                    <Form form={form} layout="vertical">
+                        <Row gutter={[16, 12]}>
                                 {paletteFields.map(field => (
                                     <Col xs={24} md={12} lg={8} key={field.key}>
                                         <Form.Item label={<Space size={8}>{field.label}{renderPreview(darkPalette[field.key])}</Space>} name={field.key}>

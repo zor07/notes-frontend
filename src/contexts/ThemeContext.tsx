@@ -34,7 +34,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const THEME_STORAGE_KEY = 'app-theme';
 const DARK_PALETTE_STORAGE_KEY = 'app-dark-palette';
 
-const DEFAULT_DARK_PALETTE: DarkPalette = {
+export const DEFAULT_DARK_PALETTE: DarkPalette = {
     background: '#141414',
     surface: '#1f1f1f',
     surfaceElevated: '#262626',

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
-import {Breadcrumb, Dropdown, Menu, Switch, Space, Typography} from 'antd';
+import {Breadcrumb, Dropdown, Menu, Switch, Space, Typography, Tooltip} from 'antd';
 import {HomeOutlined, LoginOutlined, LogoutOutlined, BulbOutlined, UserOutlined} from '@ant-design/icons';
 import {NotebookType} from "../../redux/notebook-reducer";
 import {NoteType} from "../../redux/note-editor-reducer";
 import {useTheme} from "../../contexts/ThemeContext";
+import ThemeLab from "../ThemeLab/ThemeLab";
 
 import css from './Navbar.module.css'
 
@@ -22,6 +23,7 @@ type NavbarPropsType = {
 const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks, notebook, note}) => {
     const location = useLocation()
     const { theme, toggleTheme, darkPalette } = useTheme()
+    const [isThemeModalOpen, setIsThemeModalOpen] = useState(false)
 
     let breadCrumbs;
 
@@ -112,6 +114,13 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
 
 
 
+    const bulbTooltip = theme === 'dark' ? 'Нажми меня' : 'Включи меня';
+    const handleBulbClick = () => {
+        if (theme === 'dark') {
+            setIsThemeModalOpen(true)
+        }
+    }
+
     return (
         <Menu
             theme={theme === 'dark' ? 'dark' : 'light'}
@@ -141,23 +150,22 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
                 </div>
                 <div className={css.right}>
                     <Space align="center">
-                        {theme === 'dark' && (
-                            <NavLink
-                                to="/theme-lab"
-                                state={{from: location.pathname}}
-                                className={css.themeLink}
+                        <Tooltip title={bulbTooltip}>
+                            <span
+                                className={`${css.bulbWrapper} ${theme === 'dark' ? css.bulbOn : ''}`}
+                                onClick={handleBulbClick}
+                                role="button"
+                                aria-label="Открыть настройки темы"
                             >
-                                Theme Labs
-                            </NavLink>
-                        )}
-                        <span className={`${css.bulbWrapper} ${theme === 'dark' ? css.bulbOn : ''}`}>
-                            <BulbOutlined className={css.bulbIcon}/>
-                        </span>
+                                <BulbOutlined className={css.bulbIcon}/>
+                            </span>
+                        </Tooltip>
                         <Switch checked={theme === 'dark'} onChange={toggleTheme} size="small" />
                         <Text>{theme === 'dark' ? 'Dark' : 'Light'}</Text>
                     </Space>
                 </div>
             </div>
+            <ThemeLab open={isThemeModalOpen} onRequestClose={() => setIsThemeModalOpen(false)} />
         </Menu>
     )
 }

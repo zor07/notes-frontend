@@ -7,6 +7,11 @@ import css from './ThemeLab.module.css';
 
 const {Title, Paragraph, Text} = Typography;
 
+type ThemeLabProps = {
+    open?: boolean;
+    onRequestClose?: () => void;
+};
+
 const paletteFields: Array<{
     key: keyof DarkPalette;
     label: string;
@@ -31,7 +36,7 @@ const paletteFields: Array<{
     {key: 'navbarBg', label: 'Фон навбара', type: 'color'},
 ];
 
-const ThemeLab: React.FC = () => {
+const ThemeLab: React.FC<ThemeLabProps> = ({open = true, onRequestClose}) => {
     const {theme, darkPalette, updateDarkPalette, resetDarkPalette} = useTheme();
     const [form] = Form.useForm();
     const presetOptions: Array<{value: string; label: string; palette: DarkPalette}> = [
@@ -281,12 +286,16 @@ const ThemeLab: React.FC = () => {
     };
 
     const handleClose = () => {
-        navigate(from || '/');
+        if (onRequestClose) {
+            onRequestClose();
+        } else {
+            navigate(from || '/');
+        }
     };
 
     return (
         <Modal
-            open
+            open={open}
             title="Настройка темной темы"
             onCancel={handleClose}
             footer={<Button type="primary" onClick={handleClose}>Закрыть</Button>}

@@ -141,7 +141,15 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
                 </div>
                 <div className={css.right}>
                     <Space align="center">
-                        <NavLink to="/theme-lab" state={{from: location.pathname}} className={css.themeLink}>Theme lab</NavLink>
+                        {theme === 'dark' && (
+                            <NavLink
+                                to="/theme-lab"
+                                state={{from: location.pathname}}
+                                className={css.themeLink}
+                            >
+                                Theme Labs
+                            </NavLink>
+                        )}
                         <BulbOutlined />
                         <Switch checked={theme === 'dark'} onChange={toggleTheme} size="small" />
                         <Text>{theme === 'dark' ? 'Dark' : 'Light'}</Text>

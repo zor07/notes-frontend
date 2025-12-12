@@ -96,3 +96,8 @@ body.theme-dark .ProseMirror h5,
 body.theme-dark .ProseMirror h6 {
   color: var(--dark-editor-text, var(--dark-text-primary, rgba(255, 255, 255, 0.85))) !important;
 }
+
+/* Переключатель темы — в темном режиме фон совпадает с цветом активной кнопки */
+body.theme-dark .ant-switch-checked {
+  background-color: var(--dark-button-primary-bg, var(--dark-buttonPrimaryBg, var(--dark-accent, #1890ff))) !important;
+}

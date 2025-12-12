@@ -4,18 +4,20 @@ import {AppStateType} from "../../redux/redux-store";
 import {useNavigate, useParams} from "react-router-dom";
 import Editor from "../Editor/Editor";
 import {PrimitiveSelection, RemirrorJSON} from "remirror";
-import {message, Tabs} from "antd";
+import {Button, message, Tabs} from "antd";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {useDebouncedCallback} from "use-debounce";
 import {getNote, NoteType, saveNote, unmountNote} from "../../redux/note-editor-reducer";
-import {NoteIdAndTitleType, requestNotes} from "../../redux/notes-reducer";
+import {clearCreatedNoteId, createNewNote, NoteIdAndTitleType, requestNotes} from "../../redux/notes-reducer";
 import css from './Note.module.css'
+import {PlusOutlined} from "@ant-design/icons";
 
 
 type MapStatePropsType = {
     note: NoteType | null,
     notes: Array<NoteIdAndTitleType>
+    createdNoteId: string | null
 }
 
 type MapDispatchPropsType = {
@@ -23,6 +25,8 @@ type MapDispatchPropsType = {
     getNote: (notebookId: string, noteId: string) => void
     requestNotes: (notebookId: string) => void
     unmountNote: () => void
+    createNewNote: (notebookId: string) => void
+    clearCreatedNoteId: () => void
 }
 
 
@@ -35,19 +39,21 @@ const NoteEditorContainer: React.FC<NoteContainerPropsType> = (props) => {
     const dispatch = useDispatch()
     const [note, setNote] = useState(props.note)
     const [currentNoteId, setCurrentNoteId] = useState(params.noteId)
+    const [isCreatingNote, setIsCreatingNote] = useState(false)
+    const [pendingCreatedNoteId, setPendingCreatedNoteId] = useState<string | null>(null)
 
     useEffect(() => {
-        if (params.noteId) {
+        if (params.notebookId && params.noteId) {
             dispatch(getNote(params.notebookId, params.noteId));
-            setTimeout(() => {
-                // TODO describe types in reducers, and return promise from dispatch
-                dispatch(requestNotes(params.notebookId))
-            }, 250)
+            dispatch(requestNotes(params.notebookId))
         }
+    }, [dispatch, params.notebookId, params.noteId])
+
+    useEffect(() => {
         return () => {
             dispatch(unmountNote())
         }
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         if (note !== props.note) {
@@ -61,15 +67,43 @@ const NoteEditorContainer: React.FC<NoteContainerPropsType> = (props) => {
 
 
     useEffect(() => {
-        if (currentNoteId != params.noteId) {
+        if (currentNoteId && currentNoteId !== params.noteId && params.notebookId) {
             dispatch(getNote(params.notebookId, currentNoteId));
             navigate(`/notebooks/${params.notebookId}/notes/${currentNoteId}`)
         }
-    }, [currentNoteId])
+    }, [currentNoteId, dispatch, navigate, params.notebookId, params.noteId])
+
+    useEffect(() => {
+        if (isCreatingNote && params.notebookId) {
+            dispatch(createNewNote(params.notebookId))
+        }
+    }, [dispatch, isCreatingNote, params.notebookId])
+
+    useEffect(() => {
+        if (props.createdNoteId && params.notebookId) {
+            setPendingCreatedNoteId(props.createdNoteId)
+            setIsCreatingNote(false)
+            dispatch(clearCreatedNoteId())
+            dispatch(requestNotes(params.notebookId))
+        }
+    }, [dispatch, params.notebookId, props.createdNoteId])
+
+    useEffect(() => {
+        if (pendingCreatedNoteId && params.notebookId && props.notes.some(noteItem => noteItem.id === pendingCreatedNoteId)) {
+            setCurrentNoteId(pendingCreatedNoteId)
+            navigate(`/notebooks/${params.notebookId}/notes/${pendingCreatedNoteId}`)
+            setPendingCreatedNoteId(null)
+        }
+    }, [navigate, params.notebookId, pendingCreatedNoteId, props.notes])
 
     const handleTabChange = (selectedNoteId) => {
         debounced.cancel();
         setCurrentNoteId(selectedNoteId)
+    }
+    const handleCreateNote = () => {
+        if (!isCreatingNote) {
+            setIsCreatingNote(true)
+        }
     }
 
     const {TabPane} = Tabs;
@@ -162,7 +196,19 @@ const NoteEditorContainer: React.FC<NoteContainerPropsType> = (props) => {
                   tabPosition={'right'}
                   onChange={handleTabChange}
                   className={css.noteTabs}
-                  style={{height: "max-content"}}>
+                  style={{height: "max-content"}}
+                  tabBarExtraContent={
+                      <Button
+                          type="primary"
+                          icon={<PlusOutlined />}
+                          block
+                          onClick={handleCreateNote}
+                          loading={isCreatingNote}
+                          className={css.addNoteButton}
+                      >
+                          Добавить запись
+                      </Button>
+                  }>
                 {props.notes.map(noteItem => (
                     <TabPane tab={noteItem.title}
                              key={noteItem.id}>
@@ -183,7 +229,8 @@ const NoteEditorContainer: React.FC<NoteContainerPropsType> = (props) => {
 let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         note: state.noteEditor.note,
-        notes: state.notes.notes
+        notes: state.notes.notes,
+        createdNoteId: state.notes.createdNoteId
     }
 }
 
@@ -193,6 +240,8 @@ export default compose(
         saveNote,
         getNote,
         requestNotes,
-        unmountNote
+        unmountNote,
+        createNewNote,
+        clearCreatedNoteId
     })
 )(NoteEditorContainer);

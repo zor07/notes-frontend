@@ -171,6 +171,28 @@ body.theme-dark .tableRow:hover :global(.ant-table-tbody > tr > td) {
     background: transparent;
 }
 
+.noteTabs :global(.ant-tabs-nav) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.noteTabs :global(.ant-tabs-extra-content) {
+    order: -1;
+    width: 100%;
+    padding: 0 8px;
+}
+
+.noteTabs :global(.ant-tabs-right > .ant-tabs-nav .ant-tabs-nav-wrap),
+.noteTabs :global(.ant-tabs-right > .ant-tabs-nav .ant-tabs-nav-list) {
+    width: 100%;
+}
+
+.addNoteButton {
+    width: 100%;
+    margin-bottom: 4px;
+}
+
 body.theme-dark .noteTabs {
     background: var(--dark-surface, #1f1f1f) !important;
 }

@@ -150,7 +150,9 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
                                 Theme Labs
                             </NavLink>
                         )}
-                        <BulbOutlined />
+                        <span className={`${css.bulbWrapper} ${theme === 'dark' ? css.bulbOn : ''}`}>
+                            <BulbOutlined className={css.bulbIcon}/>
+                        </span>
                         <Switch checked={theme === 'dark'} onChange={toggleTheme} size="small" />
                         <Text>{theme === 'dark' ? 'Dark' : 'Light'}</Text>
                     </Space>

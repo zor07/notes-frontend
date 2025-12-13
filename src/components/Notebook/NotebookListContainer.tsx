@@ -76,7 +76,7 @@ const NotebookListContainer: React.FC<NotebookListContainerType> = (props) => {
         <div className={css.content}>
             <div className={css.header}>
                 <Title level={2} className={css.headerTitle}>
-                    Мои блокноты
+                    Блокноты
                 </Title>
                 <Space>
                     <Input

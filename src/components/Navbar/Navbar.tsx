@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
             </Breadcrumb.Item>
             <Breadcrumb.Separator>:</Breadcrumb.Separator>
             <Breadcrumb.Item href="" key='notebooks'>
-                <NavLink to='/notebooks'><HomeOutlined/> Notebooks</NavLink>
+                <NavLink to='/notebooks'><HomeOutlined/> Note Desk</NavLink>
             </Breadcrumb.Item>
         </Breadcrumb>
     } else if (location.pathname.match('\/notebooks\/[0-9]+\/notes\/?$')) {
@@ -78,7 +78,7 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
             </Breadcrumb.Item>
             <Breadcrumb.Separator>:</Breadcrumb.Separator>
             <Breadcrumb.Item href="" key='notebooks'>
-                <NavLink to='/notebooks'><HomeOutlined/> Notebooks</NavLink>
+                <NavLink to='/notebooks'><HomeOutlined/> Note Desk</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
             <Breadcrumb.Item href="" menu={notebooksMenu} key='notes'>
@@ -99,7 +99,7 @@ const Navbar: React.FC<NavbarPropsType> = ({isAuth, username, logout, notebooks,
             </Breadcrumb.Item>
             <Breadcrumb.Separator>:</Breadcrumb.Separator>
             <Breadcrumb.Item href="" key='notebooks'>
-                <NavLink to='/notebooks'><HomeOutlined/> Notebooks</NavLink>
+                <NavLink to='/notebooks'><HomeOutlined/> Note Desk</NavLink>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
             <Breadcrumb.Item href="" menu={notebooksMenu} key='notes'>

@@ -8,7 +8,7 @@ import {compose} from "redux";
 import {connect, useDispatch} from "react-redux";
 import NotebookForm from "./NotebookForm";
 import NotebookCard from "./NotebookCard";
-import {SearchOutlined, PlusOutlined, BookOutlined} from "@ant-design/icons";
+import {SearchOutlined, BookOutlined} from "@ant-design/icons";
 
 const {Title} = Typography;
 
@@ -88,12 +88,12 @@ const NotebookListContainer: React.FC<NotebookListContainerType> = (props) => {
                         allowClear
                     />
                     <Button 
-                        type="primary" 
-                        icon={<PlusOutlined />}
+                        type="primary"
                         onClick={() => setIsModalVisible(true)}
                         size="large"
+                        aria-label="Создать блокнот"
                     >
-                        Создать блокнот
+                        +
                     </Button>
                 </Space>
             </div>
@@ -114,12 +114,12 @@ const NotebookListContainer: React.FC<NotebookListContainerType> = (props) => {
                                 Создайте свой первый блокнот, чтобы начать сохранять заметки
                             </p>
                             <Button 
-                                type="primary" 
-                                icon={<PlusOutlined />}
+                                type="primary"
                                 onClick={() => setIsModalVisible(true)}
                                 size="large"
+                                aria-label="Создать блокнот"
                             >
-                                Создать блокнот
+                                +
                             </Button>
                         </>
                     ) : (
